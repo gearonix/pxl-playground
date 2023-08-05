@@ -3,3 +3,4 @@ build
 .env.*
 .turbo
 .idea
+dist

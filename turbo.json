@@ -4,7 +4,11 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": ["dist/**"]
+    },
+    "preview": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.vue", "src/**/*.ts"]
     },
     "lint": {},
     "dev": {
