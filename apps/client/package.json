@@ -1,9 +1,22 @@
 {
-  "name": "client",
-  "version": "0.0.0",
+  "name": "@client",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@config": "workspace:*",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vue-tsc": "^1.8.5",
+    "@typescript-eslint/parser": "^6.2.1"
   }
 }
