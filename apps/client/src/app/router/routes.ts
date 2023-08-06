@@ -1,5 +1,5 @@
-import { Main } from '@/pages/Main'
-import { Signup } from '@/pages/Signup'
+import { Main } from '@/pages/main'
+import { Signup } from '@/pages/signup'
 import { RoutePaths, RouteUrls } from '@/shared/config/paths'
 
 interface Route {
