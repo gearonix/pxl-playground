@@ -1,6 +1,7 @@
 import { Quasar } from 'quasar'
 import { createApp } from 'vue'
 
+import { router } from './../router'
 import App from './App.vue'
 
 import './../styles/import'
@@ -13,6 +14,7 @@ export const bootstrap = () => {
   app.use(Quasar, {
     plugins: {}
   })
+  app.use(router)
 
   app.mount(rootId)
 }
