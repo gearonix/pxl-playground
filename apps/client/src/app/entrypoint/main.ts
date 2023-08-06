@@ -2,7 +2,7 @@ import { Quasar } from 'quasar'
 import { createApp } from 'vue'
 
 import { router } from './../router'
-import App from './App.vue'
+import App from './app.vue'
 
 import './../styles/import'
 

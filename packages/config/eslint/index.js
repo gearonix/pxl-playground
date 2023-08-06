@@ -8,7 +8,9 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
             presets.prettier({
                 singleQuote: true,
                 trailingComma: "none",
-                endOfLine: "auto"
+                endOfLine: "auto",
+                htmlWhitespaceSensitivity: "ignore",
+                printWidth: 120
             }),
             presets.typescript({
                 tsconfig
@@ -23,7 +25,6 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
             root: true,
             ignorePatterns: ["!**/*"],
             plugins: ["prefer-arrow"],
-            extends: ["gearonix"],
             parserOptions: {
                 parser: '@typescript-eslint/parser',
                 extraFileExtensions: ['.vue'],
