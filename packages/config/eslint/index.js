@@ -13,13 +13,20 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
             presets.typescript({
                 tsconfig
             }),
-            presets.vue(),
+            presets.vue({
+                version: 'detect'
+            }),
         ],
+
         extend: {
             root: true,
             ignorePatterns: ["!**/*"],
             plugins: ["prefer-arrow"],
             extends: ["gearonix"],
+            parserOptions: {
+                parser: '@typescript-eslint/parser',
+                extraFileExtensions: ['.vue'],
+            },
             rules: {
                 "react/react-in-jsx-scope": "off",
                 "quotes": [2, "single", { "avoidEscape": true }],
