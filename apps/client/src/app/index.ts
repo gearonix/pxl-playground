@@ -1,1 +1,1 @@
-export { default as App } from './entrypoint/App.vue'
+export { default as App } from './entrypoint/app.vue'
