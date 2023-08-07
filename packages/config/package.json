@@ -1,5 +1,5 @@
 {
-  "name": "@config",
+  "name": "config",
   "version": "1.0.0",
   "dependencies": {
     "eslint": "^8.46.0",

@@ -8,12 +8,9 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
             presets.prettier({
                 singleQuote: true,
                 trailingComma: "none",
-                endOfLine: "auto",
-                htmlWhitespaceSensitivity: "ignore",
-                printWidth: 120
             }),
             presets.typescript({
-                tsconfig
+                tsconfig, root
             }),
             presets.vue({
                 version: 'detect'
@@ -37,8 +34,6 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
                 "import/no-unresolved": "off",
                 "@typescript-eslint/no-unnecessary-condition": "off",
                 "import/extensions": "off",
-                "react-hooks/exhaustive-deps": "warn",
-                "react/no-array-index-key": "warn",
                 "@typescript-eslint/no-explicit-any": "warn",
                 "dot-notation": "off",
                 "prefer-arrow/prefer-arrow-functions": "error",

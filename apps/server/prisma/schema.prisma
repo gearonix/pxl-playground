@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
+model User {
   userId Int @id @default(autoincrement())
   phoneNumber  String  @db.Char(14)
   password  String  @db.VarChar(150)

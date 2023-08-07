@@ -1,4 +1,5 @@
 {
+  "name": "pixel-playground",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -11,6 +12,5 @@
     "dotenv-cli": "^7.2.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.6.10",
-  "name": "discs-delivery-app"
+  "packageManager": "pnpm@8.6.10"
 }

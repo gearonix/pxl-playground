@@ -1,10 +1,8 @@
+import '../styles/import'
 import { Quasar } from 'quasar'
 import { createApp } from 'vue'
-
-import { router } from './../router'
+import { router } from '../router'
 import App from './app.vue'
-
-import './../styles/import'
 
 const rootId = '#app'
 
