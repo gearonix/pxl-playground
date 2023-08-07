@@ -1,0 +1,57 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "./dist/app.js",
+  "source": "./dist/app.js",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist",
+    "dev": "dotenv -e ../../.env.dev npm run dev-core",
+    "dev-core": "ts-node-dev --respawn -r tsconfig-paths/register src/app.ts",
+    "build": "npm run clean && tsc && tsc-alias",
+    "migrate:dev": "dotenv -e ../../.env.dev prisma migrate dev",
+    "migrate:prod": "dotenv -e ../../.env.prod prisma migrate deploy",
+    "generate": "npx prisma generate",
+    "preview": "node dist/app"
+  },
+  "dependencies": {
+    "@fastify/caching": "^8.3.0",
+    "@fastify/cors": "^8.3.0",
+    "@fastify/helmet": "^11.0.0",
+    "@fastify/swagger": "^8.8.0",
+    "@prisma/client": "^5.1.1",
+    "fastify": "^4.21.0",
+    "fastify-cors": "^6.1.0",
+    "fastify-plugin": "^4.5.1",
+    "module-alias": "^2.2.3"
+  },
+  "devDependencies": {
+    "@config": "workspace:*",
+    "@types/cors": "^2.8.13",
+    "@types/fastify-cors": "^2.1.0",
+    "@types/node": "^20.4.8",
+    "fastify-tsconfig": "^1.0.1",
+    "node-dev": "^8.0.0",
+    "prisma": "^5.1.1",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.7",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.6"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/app.d.ts",
+      "import": "./dist/app.js",
+      "require": "./dist/app.js"
+    }
+  },
+  "engines": {
+    "node": "^16.0.0"
+  }
+}
