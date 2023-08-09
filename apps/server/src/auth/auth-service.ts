@@ -4,6 +4,7 @@ import {
   FastifyReply,
   FastifyRequest
 } from 'fastify'
+import { AccessTokenResponse, SignInEntry } from 'server-types'
 import { User } from '@/_prisma-types'
 import {
   UserAlreadyExists,
@@ -13,8 +14,7 @@ import {
 import { HttpStatus } from '@/common/consts/http-statuses'
 import { Body } from '@/common/types/fastify'
 import { UsersService } from '@/core/users'
-import { SignInEntry } from './lib/types/entries'
-import { AccessTokenPayload, AccessTokenResponse } from './lib/types/responses'
+import { AccessTokenPayload } from './types'
 
 export class AuthService {
   usersService: UsersService

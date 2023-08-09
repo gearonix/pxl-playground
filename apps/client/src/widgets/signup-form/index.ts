@@ -1,2 +1,5 @@
+export { $auth } from './model/auth'
+export { validateUserFx } from './model/validate-user.fx'
+export { logoutFx } from './model/logout.fx'
 export type { SignupFormValues } from './types'
 export { default as SignupForm } from './ui/signup-form.vue'

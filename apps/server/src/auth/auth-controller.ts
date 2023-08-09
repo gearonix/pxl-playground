@@ -6,11 +6,11 @@ import {
   AccessTokenResponse
 } from '@/auth/lib/types/responses'
 import { withGuards } from '@/common/lib/with-guards'
+import { AnyObject } from '@/common/types/common'
 import { Body } from '@/common/types/fastify'
 import { SignInEntry } from './lib/types/entries'
 import { AuthRoutes } from './lib/types/routes'
 import { signInSchema } from './schema/sign-in.schema'
-import {AnyObject} from '@/common/types/common'
 
 export const authController = (
   server: FastifyInstance,

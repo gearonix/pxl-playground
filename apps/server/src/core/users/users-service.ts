@@ -17,7 +17,9 @@ export class UsersService extends Service {
         userId: Number(userId)
       },
       select: {
-        password: false
+        password: false,
+        userId: true,
+        phoneNumber: true
       }
     })
   }

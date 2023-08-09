@@ -1,0 +1,11 @@
+{
+  "name": "server-types",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "config": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}

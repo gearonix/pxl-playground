@@ -15,7 +15,8 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
             presets.vue({
                 version: 'detect'
             }),
-            presets.imports()
+            presets.imports(),
+            presets.effector()
         ],
 
         extend: {
