@@ -11,17 +11,15 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.16.5",
-    "@types/node": "^20.4.8",
     "effector": "^22.8.6",
-    "effector-solid": "^0.22.7",
     "effector-vue": "^22.2.0",
-    "patronum": "^1.19.1",
     "quasar": "^2.12.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
     "wretch": "^2.6.0"
   },
   "devDependencies": {
+    "@types/node": "^20.4.8",
     "@typescript-eslint/parser": "^6.2.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.14",
