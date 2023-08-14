@@ -1,6 +1,8 @@
 import '../styles/import'
-import { Quasar } from 'quasar'
+
+import { LoadingBar, Quasar } from 'quasar'
 import { createApp } from 'vue'
+
 import { router } from '../router'
 import App from './application.vue'
 
@@ -10,8 +12,16 @@ export const bootstrap = () => {
   const app = createApp(App)
 
   app.use(Quasar, {
-    plugins: {}
+    plugins: {
+      LoadingBar
+    }
   })
+
+  LoadingBar.setDefaults({
+    color: 'primary',
+    size: '3px'
+  })
+
   app.use(router)
 
   app.mount(rootId)

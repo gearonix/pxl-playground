@@ -19,6 +19,6 @@ model Disc {
   cusa String @db.Char(50)
   id Int @id @default(autoincrement())
   name String  @db.VarChar(150)
-  cost Int
   amount Int
+  createdAt DateTime @default(now())
 }

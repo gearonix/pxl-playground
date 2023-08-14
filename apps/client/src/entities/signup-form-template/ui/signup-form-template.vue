@@ -45,7 +45,7 @@ const onSubmit = () => {
         :error-message="props.errorMessage"
         :rules="[required('Password'), min(6)]" />
       <q-btn
-        color="secondary"
+        color="primary"
         label="Войти"
         glossy
         class="full-width mt-[44px]"

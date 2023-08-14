@@ -17,4 +17,5 @@ export interface Disc {
     name: string,
     cost: number,
     amount: number,
+    createdAt: Date,
 }

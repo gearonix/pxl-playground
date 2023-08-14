@@ -1,4 +1,5 @@
 import { AccessTokenResponse, GetAllDiscsEntry } from 'server-types'
+
 import { Controller, Query } from '@/common/types/fastify'
 import { DiscsRoutes } from '@/core/discs/consts/routes'
 import { DiscsService } from '@/core/discs/discs-service'
@@ -10,7 +11,7 @@ export const discsController: Controller = (server, opts, done) => {
 
   server.get<Query<GetAllDiscsEntry<DiscType>>>(
     DiscsRoutes.GET_ALL,
-    { schema: getAllDiscsSchema },
+    { schema: getAllDiscsSchema, onRequest: server.authGuard },
     async (req): Promise<AccessTokenResponse> => {
       return discsService.getDiscs(req.query)
     }
