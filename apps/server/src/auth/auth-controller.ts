@@ -1,22 +1,16 @@
-import { DoneFuncWithErrOrRes, FastifyInstance } from 'fastify'
-import { User } from '@/_prisma-types'
-import { AuthService } from '@/auth/auth-service'
 import {
   AccessTokenPayload,
-  AccessTokenResponse
-} from '@/auth/lib/types/responses'
+  AccessTokenResponse,
+  SignInEntry
+} from 'server-types'
+import { User } from '@/_prisma-types'
+import { AuthService } from '@/auth/auth-service'
 import { withGuards } from '@/common/lib/with-guards'
-import { AnyObject } from '@/common/types/common'
-import { Body } from '@/common/types/fastify'
-import { SignInEntry } from './lib/types/entries'
+import { Body, Controller } from '@/common/types/fastify'
 import { AuthRoutes } from './lib/types/routes'
 import { signInSchema } from './schema/sign-in.schema'
 
-export const authController = (
-  server: FastifyInstance,
-  opts: AnyObject,
-  done: DoneFuncWithErrOrRes
-) => {
+export const authController: Controller = (server, opt, done) => {
   const authService = new AuthService(server)
 
   server.post<Body<SignInEntry>>(

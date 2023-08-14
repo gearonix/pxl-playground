@@ -12,10 +12,11 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
             presets.typescript({
                 tsconfig, root
             }),
-            presets.vue({
-                version: 'detect'
+            presets.imports({
+                sort: {
+                    newline: true
+                }
             }),
-            presets.imports(),
             presets.effector()
         ],
 

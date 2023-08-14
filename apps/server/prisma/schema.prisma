@@ -12,3 +12,13 @@ model User {
   phoneNumber  String  @db.Char(14)
   password  String  @db.VarChar(150)
 }
+
+
+model Disc {
+  type String @db.Char(50)
+  cusa String @db.Char(50)
+  id Int @id @default(autoincrement())
+  name String  @db.VarChar(150)
+  cost Int
+  amount Int
+}

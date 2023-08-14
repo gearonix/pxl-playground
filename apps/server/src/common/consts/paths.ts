@@ -1,13 +1,15 @@
 const routes = {
   _ROOT: '_ROOT',
   _DOCS: '_DOCS',
-  AUTH: 'AUTH'
+  AUTH: 'AUTH',
+  DISCS: 'DISCS'
 } as const
 
 export const RoutePaths = {
   [routes._ROOT]: '/',
   [routes._DOCS]: '/docs',
-  [routes.AUTH]: '/auth'
+  [routes.AUTH]: '/auth',
+  [routes.DISCS]: '/discs'
 } as const
 
 type RouteKeys = keyof typeof RoutePaths
