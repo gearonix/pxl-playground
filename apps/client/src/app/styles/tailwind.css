@@ -10,4 +10,8 @@
     .border-grey {
         @apply border border-stone-300;
     }
+    .page-container {
+        @apply w-[90%] mt-[35px] rounded-2xl p-[40px]
+        min-h-[600px] m-center shadow-sm border-grey;
+    }
 }

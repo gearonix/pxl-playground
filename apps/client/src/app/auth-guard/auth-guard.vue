@@ -16,7 +16,7 @@ onMounted(() => {
   validateUserFx()
 })
 
-useLoadingBar()
+const viewLoadingBar = useLoadingBar()
 
 watch(
   [store, () => route.value.path, isPending],
@@ -24,6 +24,7 @@ watch(
     if (isPending.value) {
       return
     }
+    viewLoadingBar()
 
     const isForbiddenRoute = onForbiddenRoute(isAuthorized, path)
     if (isForbiddenRoute.authorized) {
