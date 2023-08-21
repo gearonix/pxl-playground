@@ -2,7 +2,7 @@
 import { useVModel } from 'effector-vue/composition'
 import { min, required } from '@/shared/lib/form/validators'
 import { SignupFormValues } from '@/widgets/signup-form'
-import { $signupForm } from '../model.ts'
+import { $signupForm, resetForm } from '../model'
 
 const formValues = useVModel($signupForm)
 

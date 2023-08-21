@@ -22,7 +22,7 @@ const onSubmit = signupFx.prepend(
 )
 
 signupFx.failData.watch((error: FetchError) => {
-  errorMessage.value = error.json.message
+  errorMessage.value = error.json?.message
 })
 </script>
 

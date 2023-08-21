@@ -3,6 +3,7 @@ import {RoutePaths} from '@/shared/config/paths'
 import {useStore} from '@/shared/hooks'
 import {$totalAmount} from '@/widgets/header/model/$basket'
 import {$basket} from '@/widgets/header/model/$basket'
+import {logoutFx} from '@/widgets/signup-form'
 import {$auth} from '@/widgets/signup-form'
 
 const basket = useStore($basket)
@@ -28,8 +29,11 @@ const createOrder = () => {
     />
     <router-link :to="RoutePaths.PROFILE">
     <div class="w-[155px]">
-      <img class="w-[38px] h-[38px] cursor-pointer
-      " src="/default-avatar.png"/>
+      <div v-if="auth.isAuthorized" class="flex gap-[40px] items-center">
+        <q-icon name="logout" class="text-grey-7"
+                size="sm" @click="logoutFx"/>
+          <img class="w-[38px] h-[38px] cursor-pointer" src="/default-avatar.png" />
+      </div>
     </div>
     </router-link>
   </div>

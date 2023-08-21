@@ -5,5 +5,8 @@ export const EndPoints = {
   },
   DISCS: {
     all: '/discs/all'
+  },
+  USER: {
+    deliveryAddress: '/users/delivery-address'
   }
 } as const

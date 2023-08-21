@@ -10,7 +10,7 @@ import {RoutePaths} from '@/shared/config/paths'
     <q-tab name="main" label="Главная" class="text-dark" />
     </router-link>
     <router-link :to="RoutePaths.PROFILE">
-    <q-tab name="link-1" label="Профиль" class="text-dark"/>
+    <q-tab name="profile" label="Профиль" class="text-dark"/>
     </router-link>
     <q-tab name="link-2" label="Link" class="text-dark"/>
     <q-tab name="link-2" label="Link" class="text-dark"/>

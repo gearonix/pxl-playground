@@ -1,4 +1,3 @@
-import { FastifyInstance } from 'fastify'
 import { Service } from '@/common/lib/service-module'
 import { DiscType } from '@/core/discs/types'
 
