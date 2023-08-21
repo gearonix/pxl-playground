@@ -12,6 +12,11 @@ model User {
   phoneNumber  String  @db.Char(14)
   password  String  @db.VarChar(150)
   deliveryAddress String? @default("") @db.VarChar(40)
+  isAdmin Boolean @default(false)
+  isBlocked Boolean @default(false)
+  balance Int @default(0)
+  orders UserOrder[]
+  username String @db.VarChar(20) @default("")
 }
 
 
@@ -32,4 +37,6 @@ model UserOrder {
   totalAmount Int
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
+  user User @relation(fields: [createdBy], references: [userId])
 }
+

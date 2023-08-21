@@ -9,6 +9,7 @@ import { AccessTokenResponse, SignInEntry } from 'server-types'
 import { User } from '@/_prisma-types'
 import {
   UserAlreadyExists,
+  UserIsBlocked,
   UserNotFound,
   WrongPassword
 } from '@/auth/lib/consts/exceptions'
@@ -52,6 +53,10 @@ export class AuthService {
       return reply.throwError(reply, { msg: WrongPassword })
     }
 
+    if (user.isBlocked) {
+      return reply.throwError(reply, { msg: UserIsBlocked })
+    }
+
     req.user = user
 
     done()
@@ -74,26 +79,6 @@ export class AuthService {
     }
 
     req.user = user
-  }
-
-  public async registerUser(
-    entry: SignInEntry,
-    reply: FastifyReply
-  ): Promise<User> {
-    const possibleUser = await this.usersService.findUserByPhoneNumber(
-      entry.phone
-    )
-
-    if (possibleUser) {
-      return reply.throwError(reply, { msg: UserAlreadyExists })
-    }
-
-    const hashPassword = await this.server.bcrypt.hash(entry.password)
-
-    return this.usersService.createUser({
-      phoneNumber: entry.phone,
-      password: hashPassword
-    })
   }
 
   public generateToken(userId: number): AccessTokenResponse {

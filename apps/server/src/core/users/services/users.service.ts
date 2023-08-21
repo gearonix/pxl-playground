@@ -19,14 +19,9 @@ export class UsersService extends Service {
       select: {
         password: false,
         userId: true,
-        phoneNumber: true
+        phoneNumber: true,
+        isAdmin: true
       }
-    })
-  }
-
-  async createUser(user: ExtractOptional<User, 'userId'>): Promise<User> {
-    return this.server.prisma.user.create({
-      data: user
     })
   }
 }

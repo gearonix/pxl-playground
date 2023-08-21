@@ -26,16 +26,6 @@ export const authController: Controller = (server, opt, done) => {
     }
   )
 
-  server.post<Body<SignInEntry>>(
-    AuthRoutes.CREATE_USER,
-    { schema: signInSchema },
-    async (req, reply): Promise<AccessTokenResponse> => {
-      const newUser = await authService.registerUser(req.body, reply)
-
-      return authService.generateToken(newUser.userId)
-    }
-  )
-
   server.get<Body<void>>(
     AuthRoutes.VALIDATE_TOKEN,
     withGuards([server.authGuard, authService.prepareUser.bind(authService)]),

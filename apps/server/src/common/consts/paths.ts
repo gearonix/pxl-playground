@@ -4,7 +4,8 @@ const routes = {
   AUTH: 'AUTH',
   DISCS: 'DISCS',
   USERS: 'USERS',
-  ORDERS: 'ORDERS'
+  ORDERS: 'ORDERS',
+  ADMIN: 'ADMIN'
 } as const
 
 export const RoutePaths = {
@@ -13,7 +14,8 @@ export const RoutePaths = {
   [routes.AUTH]: '/auth',
   [routes.DISCS]: '/discs',
   [routes.USERS]: '/users',
-  [routes.ORDERS]: '/orders'
+  [routes.ORDERS]: '/orders',
+  [routes.ADMIN]: '/admin'
 } as const
 
 type RouteKeys = keyof typeof RoutePaths
