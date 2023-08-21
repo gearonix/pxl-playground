@@ -8,5 +8,9 @@ export const EndPoints = {
   },
   USER: {
     deliveryAddress: '/users/delivery-address'
+  },
+  ORDERS: {
+    createOrder: '/orders/create-order',
+    getOrders: '/orders/get-orders'
   }
 } as const

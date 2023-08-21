@@ -1,4 +1,4 @@
-import { Service } from '@/common/lib/service-module'
+import { Service } from '@/common/lib/service.module'
 import { DiscType } from '@/core/discs/types'
 
 export class DiscsService extends Service {

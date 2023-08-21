@@ -5,6 +5,8 @@ import { AuthService } from '@/auth/auth-service'
 export const useAuthGuard = (server: FastifyInstance) => {
   const authService = new AuthService(server)
 
-  server.addHook('preHandler', server.authGuard)
-  server.addHook('preHandler', authService.prepareUser.bind(authService))
+  server.addHook('onRequest', async (...args) => {
+    server.authGuard(...args)
+    await authService.prepareUser.call(authService, ...args)
+  })
 }

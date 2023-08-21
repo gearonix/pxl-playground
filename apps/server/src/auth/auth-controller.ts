@@ -3,10 +3,12 @@ import {
   AccessTokenResponse,
   SignInEntry
 } from 'server-types'
+
 import { User } from '@/_prisma-types'
 import { AuthService } from '@/auth/auth-service'
 import { withGuards } from '@/common/lib/with-guards'
 import { Body, Controller } from '@/common/types/fastify'
+
 import { AuthRoutes } from './lib/types/routes'
 import { signInSchema } from './schema/sign-in.schema'
 

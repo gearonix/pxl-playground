@@ -11,7 +11,7 @@ model User {
   userId Int @id @default(autoincrement())
   phoneNumber  String  @db.Char(14)
   password  String  @db.VarChar(150)
-  deliveryAddress String @default("") @db.VarChar(40)
+  deliveryAddress String? @default("") @db.VarChar(40)
 }
 
 
@@ -21,5 +21,15 @@ model Disc {
   id Int @id @default(autoincrement())
   name String  @db.VarChar(150)
   cost Int
+  createdAt DateTime @default(now())
+}
+
+model UserOrder {
+  discs Json
+  status String @db.VarChar(150)
+  createdBy Int
+  orderId Int @default(1)
+  totalAmount Int
+  id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
 }

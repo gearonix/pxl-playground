@@ -16,3 +16,13 @@ export interface Disc {
   cost: number
   createdAt: Date
 }
+
+export interface UserOrder {
+  discs: any
+  status: string
+  createdBy: number
+  orderId: number
+  totalAmount: number
+  id: number
+  createdAt: Date
+}

@@ -2,6 +2,7 @@ import jwtService from '@fastify/jwt'
 import { onRequestHookHandler } from 'fastify'
 import bcrypt from 'fastify-bcrypt'
 import fp from 'fastify-plugin'
+
 import { jwtSecret } from '@/common/consts/env'
 
 declare module 'fastify' {

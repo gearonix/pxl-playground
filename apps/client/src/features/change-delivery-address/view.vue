@@ -19,7 +19,7 @@ const onBlur = () => {
 </script>
 <template>
   <div class="max-w-[250px] mt-40px">
-    <h3 class="text-xl mt-[25px] mb-[10px]">Адрес доставки</h3>
+    <h3 class="text-xl mt-[35px] mb-[0px] text-grey-8">Адрес доставки</h3>
     <q-input
         v-model="address"
         label="Изменить адрес доставки"

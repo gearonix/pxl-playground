@@ -74,8 +74,6 @@ export class AuthService {
     }
 
     req.user = user
-
-    done()
   }
 
   public async registerUser(

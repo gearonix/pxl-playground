@@ -4,6 +4,7 @@ import {$profileTab} from '@/pages/profile/model'
 import {useStore} from '@/shared/hooks'
 import {ChangeDeliveryAddress} from '@/features/change-delivery-address'
 import {$auth} from '@/widgets/signup-form'
+import {ProfileOrders} from '@/widgets/profile-orders'
 
 const profileTab = useStore($profileTab)
 const auth = useStore($auth)
@@ -32,6 +33,12 @@ const auth = useStore($auth)
       <h4 class="profile-head">Данные</h4>
 
       <ChangeDeliveryAddress />
+    </div>
+
+    <div v-if="profileTab === 'orders'">
+      <h4 class="profile-head">Заказы</h4>
+
+      <ProfileOrders />
     </div>
 
 

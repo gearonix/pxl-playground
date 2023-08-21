@@ -30,15 +30,18 @@ watch(discs, (newDiscs) => {
   discsWithAmount.value = createRows(newDiscs)
 })
 
+
 onMounted(getDiscsByType)
 
-const addToBasket = (disc: Disc, amount: number) => {
+const addToBasket = (disc: Disc, amount: string) => {
   addDiscToBasket({
     id: disc.id,
     cost: disc.cost,
-    amount
+    amount: Number(amount)
   })
 }
+
+
 
 </script>
 

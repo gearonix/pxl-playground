@@ -9,7 +9,7 @@
     "build": "npm run clean && tsc && tsc-alias",
     "migrate:dev": "dotenv -e ../../.env.dev prisma migrate dev && npm run generate-types",
     "migrate:prod": "dotenv -e ../../.env.prod prisma migrate deploy",
-    "generate": "dotenv -e ../../.env.dev npx prisma db push",
+    "generate": "dotenv -e ../../.env.dev npx prisma generate",
     "generate-types": "npx @kalissaac/prisma-typegen ./src/_prisma-types.ts ./prisma/schema.prisma",
     "preview": "node dist/app",
     "lint": "eslint \"**/*.{ts}\" --fix && prettier --write \"./src/**/*.{ts}\""
