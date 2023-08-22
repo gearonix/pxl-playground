@@ -3,6 +3,7 @@
 import {useStore} from '@/shared/hooks'
 import {getAllUsersFx} from '@/widgets/admin-users/model'
 import {$users} from '@/widgets/admin-users/model'
+import {CreateUserForm} from '@/widgets/create-user-form'
 import {onMounted} from 'vue'
 import {UserCard} from '@/entities/user-card'
 
@@ -24,5 +25,6 @@ onMounted(() => {
          class="text-2xl text-grey-6 font-normal mt-[35px]"
          v-if="users.length === 0">Здесь пока-что пусто</h3>
    </div>
+  <CreateUserForm />
 
 </template>

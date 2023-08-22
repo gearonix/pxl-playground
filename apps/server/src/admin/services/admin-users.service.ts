@@ -57,21 +57,25 @@ export class AdminUsersService extends UsersService {
 
     return this.createUser({
       phoneNumber: entry.phoneNumber,
-      hashPassword,
-      password: userPassword,
+      decryptedPassword: userPassword,
+      password: hashPassword,
       username: entry.username
     })
   }
 
-  async createUser(
-    user: CreateUserWithPassword
-  ): Promise<User & { decryptedPassword: string }> {
+  async createUser({
+    decryptedPassword,
+    ...user
+  }: CreateUserWithPassword): Promise<User & { decryptedPassword: string }> {
     const newUser = await this.server.prisma.user.create({
-      data: user
+      data: user,
+      include: {
+        orders: true
+      }
     })
     return {
       ...newUser,
-      decryptedPassword: user.password
+      decryptedPassword
     }
   }
 }

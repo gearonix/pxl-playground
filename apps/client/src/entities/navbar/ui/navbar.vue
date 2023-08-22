@@ -14,10 +14,10 @@ const user = useStore($auth)
     <router-link :to="RoutePaths.MAIN">
     <q-tab name="main" label="Главная" class="text-dark" />
     </router-link>
-    <router-link :to="RoutePaths.PROFILE">
+    <router-link :to="RoutePaths.PROFILE" v-if="!user.isAdmin">
     <q-tab name="profile" label="Профиль" class="text-dark"/>
     </router-link>
-    <router-link :to="RoutePaths.ADMIN" v-if="user.isAdmin">
+    <router-link :to="RoutePaths.ADMIN" v-else>
     <q-tab name="link-2" label="Админка" class="text-primary" />
     </router-link>
     <q-tab name="link-2" label="Link" class="text-dark"/>

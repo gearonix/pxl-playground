@@ -1,6 +1,7 @@
 import { FastifyPluginAsync, FastifyReply } from 'fastify'
-import { HttpStatus, HttpStatusValues } from '@/common/consts/http-statuses'
 import fp from 'fastify-plugin'
+
+import { HttpStatus, HttpStatusValues } from '@/common/consts/http-statuses'
 
 declare module 'fastify' {
   interface FastifyReply {
@@ -21,6 +22,8 @@ export const exceptionModule: FastifyPluginAsync = fp(async (server) => {
     'throwError',
     (reply: FastifyReply, { msg, code = HttpStatus.BAD_REQUEST }) => {
       server.log.error(msg)
+      console.warn(msg)
+
       return reply.status(code).send({
         message: msg,
         statusCode: code,

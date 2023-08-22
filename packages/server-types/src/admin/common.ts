@@ -12,7 +12,7 @@ export interface CreateUserEntry {
 }
 
 export interface CreateUserWithPassword extends CreateUserEntry {
-  hashPassword: string
+  decryptedPassword: string
   password: string
 }
 

@@ -1,4 +1,4 @@
-import { createEffect, createStore } from 'effector'
+import { createEffect, createEvent, createStore } from 'effector'
 import { User } from 'server/src/_prisma-types'
 
 import { EndPoints } from '@/shared/config/endpoints'
@@ -7,12 +7,16 @@ import { FetchError } from '@/shared/types/http'
 
 export const $users = createStore<User[]>([])
 
+export const userCreated = createEvent<User>()
+
 export const getAllUsersFx = createEffect<void, User[], FetchError>(
   async () => {
     return httpService.url(EndPoints.ADMIN.users).get().json()
   }
 )
 
-$users.on(getAllUsersFx.doneData, (_, val) => val)
+$users
+  .on(getAllUsersFx.doneData, (_, val) => val)
+  .on(userCreated, (s, user) => [...s, user])
 
 $users.watch(console.log)

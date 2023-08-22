@@ -34,7 +34,7 @@ const { ordersCount, discsCount } = useOrdersCount(user)
   mt-[15px] rounded flex px-[20px] items-center relative gap-[28px]
    ${user.isBlocked ? 'bg-grey-2': 'bg-grey-1'}`">
     <img class="block w-[47px] h-[47px]" src="/default-avatar.png" />
-    <div>
+    <div class="w-[150px]">
       <h3 class="text-lg">{{ user.username }} </h3>
       <h3 class="text-sm text-grey-6">{{ convertPhoneNumber(user.phoneNumber) }}</h3>
     </div>

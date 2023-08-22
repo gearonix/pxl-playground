@@ -1,5 +1,6 @@
 import S from 'fluent-json-schema'
-import { SignInEntry } from '@/auth/lib/types/entries'
+import { SignInEntry } from 'server-types'
+
 import { createSchema } from '@/common/lib/create-schema'
 
 type SignInKeys = keyof SignInEntry
