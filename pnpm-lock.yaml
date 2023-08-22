@@ -196,9 +196,6 @@ importers:
       config:
         specifier: workspace:^
         version: link:../config
-      server:
-        specifier: workspace:^
-        version: link:../../apps/server
       typescript:
         specifier: ^5.1.6
         version: 5.1.6

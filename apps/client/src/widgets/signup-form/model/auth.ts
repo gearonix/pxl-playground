@@ -1,5 +1,6 @@
 import { createEvent, createStore } from 'effector'
 import { User } from 'server/src/_prisma-types'
+
 import { AuthStore } from '@/widgets/signup-form/types'
 
 export const userChanged = createEvent<User>()
@@ -9,7 +10,8 @@ export const signupFailed = createEvent()
 export const $auth = createStore<AuthStore>({
   isAuthorized: false,
   phoneNumber: null,
-  userId: null
+  userId: null,
+  isAdmin: false
 })
 
 $auth

@@ -5,6 +5,7 @@ import {
   CreateUserWithPassword
 } from 'server-types'
 
+import { User } from '@/_prisma-types'
 import { UserAlreadyExists } from '@/auth/lib/consts/exceptions'
 import { generateUuid } from '@/common/lib/generate-uuid'
 import { UsersService } from '@/core/users'
@@ -14,6 +15,9 @@ export class AdminUsersService extends UsersService {
     return this.server.prisma.user.findMany({
       include: {
         orders: true
+      },
+      where: {
+        isAdmin: false
       }
     })
   }
@@ -59,7 +63,9 @@ export class AdminUsersService extends UsersService {
     })
   }
 
-  async createUser(user: CreateUserWithPassword): Promise<CreateUserReply> {
+  async createUser(
+    user: CreateUserWithPassword
+  ): Promise<User & { decryptedPassword: string }> {
     const newUser = await this.server.prisma.user.create({
       data: user
     })

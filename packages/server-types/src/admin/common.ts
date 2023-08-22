@@ -1,5 +1,3 @@
-import { SiteStatus, User } from 'server/src/_prisma-types'
-
 export interface WithUserId {
   userId: number
 }
@@ -19,7 +17,7 @@ export interface CreateUserWithPassword extends CreateUserEntry {
 }
 
 export interface ChangeSiteStatus {
-  siteStatus: SiteStatus
+  siteStatus: string
 }
 
 export interface CreateProduct {
@@ -27,8 +25,4 @@ export interface CreateProduct {
   type: string
   cusa?: string
   cost: number
-}
-
-export interface CreateUserReply extends User {
-  decryptedPassword: string
 }

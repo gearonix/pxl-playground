@@ -1,12 +1,8 @@
 <script setup lang="ts">
+import {HeaderRightSection} from '@/entities/header-right-section'
+import {Navbar} from '@/entities/navbar'
 import {logo} from '@/shared/assets'
 import {RoutePaths} from '@/shared/config/paths'
-
-import {Navbar} from '@/entities/navbar'
-import {HeaderRightSection} from '@/entities/header-right-section'
-
-
-
 
 </script>
 

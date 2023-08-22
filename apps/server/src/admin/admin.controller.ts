@@ -8,6 +8,13 @@ import {
 
 import { User } from '@/_prisma-types'
 import { AdminRoutes } from '@/admin/consts/routes'
+import {
+  blockUserSchema,
+  changeSiteStatusSchema,
+  changeUserBalanceSchema,
+  createProductSchema,
+  createUserSchema
+} from '@/admin/schema'
 import { AdminGlobalService } from '@/admin/services/admin-global.service'
 import { AdminProductService } from '@/admin/services/admin-product.service'
 import { AdminUsersService } from '@/admin/services/admin-users.service'
@@ -22,18 +29,23 @@ export const adminController: Controller = (server, opts, done) => {
 
   useAdminGuard(server)
 
-  server.get(AdminRoutes.USERS, async (req): Promise<User[]> => {
+  server.get(AdminRoutes.USERS, async (): Promise<User[]> => {
     return usersService.getUsers()
   })
 
-  server.put<Body<WithUserId>>(AdminRoutes.BLOCK_USER, async (req) => {
-    const entry = withEntry(req)
+  server.put<Body<WithUserId>>(
+    AdminRoutes.BLOCK_USER,
+    { schema: blockUserSchema },
+    async (req): Promise<User> => {
+      const entry = withEntry(req)
 
-    return usersService.blockUser(entry.userId)
-  })
+      return usersService.blockUser(entry.userId)
+    }
+  )
 
   server.put<Body<SetUserBalance>>(
     AdminRoutes.CHANGE_USER_BALANCE,
+    { schema: changeUserBalanceSchema },
     async (req) => {
       const entry = withEntry(req)
 
@@ -43,6 +55,7 @@ export const adminController: Controller = (server, opts, done) => {
 
   server.post<Body<CreateUserEntry>>(
     AdminRoutes.CREATE_USER,
+    { schema: createUserSchema },
     async (req, reply) => {
       const entry = withEntry(req)
 
@@ -51,7 +64,8 @@ export const adminController: Controller = (server, opts, done) => {
   )
 
   server.post<Body<ChangeSiteStatus>>(
-    AdminRoutes.TOGGLE_SITE_STATUS,
+    AdminRoutes.CHANGE_SITE_STATUS,
+    { schema: changeSiteStatusSchema },
     async (req) => {
       const entry = withEntry(req)
 
@@ -59,11 +73,15 @@ export const adminController: Controller = (server, opts, done) => {
     }
   )
 
-  server.post<Body<CreateProduct>>(AdminRoutes.CREATE_PRODUCT, async (req) => {
-    const entry = withEntry(req)
+  server.post<Body<CreateProduct>>(
+    AdminRoutes.CREATE_PRODUCT,
+    { schema: createProductSchema },
+    async (req) => {
+      const entry = withEntry(req)
 
-    return productService.createProduct(entry)
-  })
+      return productService.createProduct(entry)
+    }
+  )
 
   done()
 }

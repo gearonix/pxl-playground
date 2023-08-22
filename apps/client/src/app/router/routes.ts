@@ -1,3 +1,4 @@
+import { AdminPage } from '@/pages/admin'
 import { Main } from '@/pages/main'
 import { Profile } from '@/pages/profile'
 import { Signup } from '@/pages/signup'
@@ -20,5 +21,9 @@ export const routes: Route[] = [
   {
     path: RoutePaths.PROFILE,
     component: Profile
+  },
+  {
+    path: RoutePaths.ADMIN,
+    component: AdminPage
   }
 ]

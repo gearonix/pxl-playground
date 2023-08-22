@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ProfileHeader} from '@/entities/profile-header'
+import {ProfileHeader} from '@/widgets/profile-header'
 import {ProfileTabs} from '@/entities/profile-tabs'
 
 </script>
@@ -7,7 +7,7 @@ import {ProfileTabs} from '@/entities/profile-tabs'
 <template>
   <div class="page-container bg-grey-1">
    <ProfileHeader/>
-    <ProfileTabs />
+   <ProfileTabs />
   </div>
 
 </template>

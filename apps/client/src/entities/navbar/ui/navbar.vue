@@ -1,6 +1,11 @@
 <script setup lang="ts">
 
 import {RoutePaths} from '@/shared/config/paths'
+import {useStore} from '@/shared/hooks'
+import {$auth} from '@/widgets/signup-form'
+
+const user = useStore($auth)
+
 </script>
 
 <template>
@@ -11,6 +16,9 @@ import {RoutePaths} from '@/shared/config/paths'
     </router-link>
     <router-link :to="RoutePaths.PROFILE">
     <q-tab name="profile" label="Профиль" class="text-dark"/>
+    </router-link>
+    <router-link :to="RoutePaths.ADMIN" v-if="user.isAdmin">
+    <q-tab name="link-2" label="Админка" class="text-primary" />
     </router-link>
     <q-tab name="link-2" label="Link" class="text-dark"/>
     <q-tab name="link-2" label="Link" class="text-dark"/>

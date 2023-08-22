@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {allowedPaths} from '@/app/auth-guard/config'
 import {useLoadingBar} from '@/app/auth-guard/hooks/useLoadingBar'
 import {RoutePaths} from '@/shared/config/paths'
 import {useStore} from '@/shared/hooks'
@@ -9,7 +10,7 @@ import {onForbiddenRoute} from './lib/onForbiddenRoute'
 
 const router = useRouter()
 const route = router.currentRoute
-const store = useStore($auth)
+const user = useStore($auth)
 const isPending = useStore(validateUserFx.pending)
 
 onMounted(() => {
@@ -19,7 +20,7 @@ onMounted(() => {
 const viewLoadingBar = useLoadingBar()
 
 watch(
-  [store, () => route.value.path, isPending],
+  [user, () => route.value.path, isPending],
   ([{ isAuthorized }, path]) => {
     if (isPending.value) {
       return
@@ -27,12 +28,18 @@ watch(
     viewLoadingBar()
 
     const isForbiddenRoute = onForbiddenRoute(isAuthorized, path)
-    if (isForbiddenRoute.authorized) {
-      router.push({ path: RoutePaths.MAIN })
+    const isAdmin = user.value.isAdmin
+
+    if (isForbiddenRoute.admin && isAdmin) {
+      return router.push({ path: RoutePaths.ADMIN })
+    }
+
+    if (isForbiddenRoute.authorized && !isAdmin) {
+      return router.push({ path: RoutePaths.MAIN })
     }
 
     if (isForbiddenRoute.unauthorized) {
-      router.push({ path: RoutePaths.SIGNUP })
+      return router.push({ path: RoutePaths.SIGNUP })
     }
   }
 )

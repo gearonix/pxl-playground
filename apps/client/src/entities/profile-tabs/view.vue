@@ -1,6 +1,6 @@
 <script  lang="ts" setup="">
 
-import {$profileTab} from '@/entities/profile-header/model'
+import {$profileTab} from '@/widgets/profile-header/model'
 import {ChangeDeliveryAddress} from '@/features/change-delivery-address'
 import {useStore} from '@/shared/hooks'
 import {ProfileOrders} from '@/widgets/profile-orders'
