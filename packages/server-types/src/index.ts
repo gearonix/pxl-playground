@@ -1,4 +1,4 @@
-export * from './admin/requests'
+export * from './admin/common'
 export * from './auth/requests'
 export * from './auth/responses'
 export * from './discs/common'

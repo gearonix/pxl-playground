@@ -192,11 +192,13 @@ importers:
         version: 3.0.0
 
   packages/server-types:
-    dependencies:
-      config:
-        specifier: workspace:*
-        version: link:../config
     devDependencies:
+      config:
+        specifier: workspace:^
+        version: link:../config
+      server:
+        specifier: workspace:^
+        version: link:../../apps/server
       typescript:
         specifier: ^5.1.6
         version: 5.1.6

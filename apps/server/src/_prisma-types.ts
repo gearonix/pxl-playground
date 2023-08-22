@@ -2,6 +2,10 @@
 // DO NOT EDIT
 
 
+export enum SiteStatus {
+    WORKING = 'WORKING',
+    CLOSED = 'CLOSED',
+}
 
 
 export interface User {
@@ -13,6 +17,7 @@ export interface User {
     isBlocked: boolean,
     balance: number,
     orders: UserOrder[],
+    username: string,
 }
 
 export interface Disc {
@@ -33,4 +38,9 @@ export interface UserOrder {
     id: number,
     createdAt: Date,
     user: User,
+}
+
+export interface GlobalSettings {
+    id: number,
+    IS_SITE_DOWN: SiteStatus,
 }

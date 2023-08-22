@@ -40,3 +40,13 @@ model UserOrder {
   user User @relation(fields: [createdBy], references: [userId])
 }
 
+model GlobalSettings {
+  id Int @id @default(autoincrement())
+  SITE_STATUS SiteStatus
+}
+
+
+enum SiteStatus {
+  WORKING
+  CLOSED
+}

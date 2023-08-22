@@ -1,8 +1,10 @@
 import { FastifyReply } from 'fastify'
-import {CreateUserWithPassword} from 'server-types'
-import { CreateUserEntry, SignInEntry } from 'server-types'
+import {
+  CreateUserEntry,
+  CreateUserReply,
+  CreateUserWithPassword
+} from 'server-types'
 
-import { User } from '@/_prisma-types'
 import { UserAlreadyExists } from '@/auth/lib/consts/exceptions'
 import { generateUuid } from '@/common/lib/generate-uuid'
 import { UsersService } from '@/core/users'
@@ -38,30 +40,32 @@ export class AdminUsersService extends UsersService {
     })
   }
 
-  public async registerUser(
-    entry: CreateUserEntry,
-    reply: FastifyReply
-  ): Promise<User> {
+  public async registerUser(entry: CreateUserEntry, reply: FastifyReply) {
     const possibleUser = await this.findUserByPhoneNumber(entry.phoneNumber)
 
     if (possibleUser) {
       return reply.throwError(reply, { msg: UserAlreadyExists })
     }
 
-    const newPassword = generateUuid()
+    const userPassword = generateUuid()
 
-    const hashPassword = await this.server.bcrypt.hash(newPassword)
+    const hashPassword = await this.server.bcrypt.hash(userPassword)
 
     return this.createUser({
       phoneNumber: entry.phoneNumber,
-      password: hashPassword,
+      hashPassword,
+      password: userPassword,
       username: entry.username
     })
   }
 
-  async createUser(user: CreateUserWithPassword): Promise<User> {
-    return this.server.prisma.user.create({
+  async createUser(user: CreateUserWithPassword): Promise<CreateUserReply> {
+    const newUser = await this.server.prisma.user.create({
       data: user
     })
+    return {
+      ...newUser,
+      decryptedPassword: user.password
+    }
   }
 }

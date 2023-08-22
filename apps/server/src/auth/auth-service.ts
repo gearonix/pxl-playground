@@ -6,9 +6,8 @@ import {
 } from 'fastify'
 import { AccessTokenResponse, SignInEntry } from 'server-types'
 
-import { User } from '@/_prisma-types'
+import { AdminGlobalService } from '@/admin/services/admin-global.service'
 import {
-  UserAlreadyExists,
   UserIsBlocked,
   UserNotFound,
   WrongPassword
@@ -21,11 +20,13 @@ import { AccessTokenPayload } from './types'
 
 export class AuthService {
   usersService: UsersService
+  globalService: AdminGlobalService
   server: FastifyInstance
 
   constructor(server: FastifyInstance) {
     this.server = server
     this.usersService = new UsersService(server)
+    this.globalService = new AdminGlobalService(server)
   }
 
   public async validate(
@@ -64,8 +65,7 @@ export class AuthService {
 
   public async prepareUser(
     req: FastifyRequest<Body<void>>,
-    reply: FastifyReply,
-    done: DoneFuncWithErrOrRes
+    reply: FastifyReply
   ) {
     const userId = (req.user as AccessTokenPayload).userId
 
@@ -76,6 +76,10 @@ export class AuthService {
         msg: UserNotFound,
         code: HttpStatus.NOT_FOUND
       })
+    }
+
+    if (!user.isAdmin) {
+      await this.globalService.checkGlobalSettings(reply)
     }
 
     req.user = user
