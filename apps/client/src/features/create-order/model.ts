@@ -1,4 +1,5 @@
 import { createEffect, createEvent, sample } from 'effector'
+import { Notify } from 'quasar'
 import { CreateOrderPayload } from 'server-types'
 
 import { EndPoints } from '@/shared/config/endpoints'
@@ -23,5 +24,8 @@ sample({
 
 sample({
   clock: createOrderFx.doneData,
+  fn: () => {
+    Notify.create('Заказ успешно создан.')
+  },
   target: clearBasket
 })

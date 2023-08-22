@@ -10,4 +10,5 @@ export interface AuthStore {
   userId: Nullable<number>
   phoneNumber: Nullable<string>
   isAdmin: boolean
+  username: Nullable<string>
 }

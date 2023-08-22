@@ -1,1 +1,1 @@
-export const ServerIsDownException = 'The application is currently closed for use.'
+export const ServerIsDownException = 'Приложение в настоящее время закрыто для использования.'

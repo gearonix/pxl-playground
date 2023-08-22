@@ -1,7 +1,7 @@
-export const UserNotFound = 'Current user not found.'
+export const UserNotFound = 'Пользователь не найден.'
 
-export const WrongPassword = 'Wrong password.'
+export const WrongPassword = 'Неверный пароль.'
 
-export const UserAlreadyExists = 'User already exists.'
+export const UserAlreadyExists = 'Пользователь уже существует.'
 
-export const UserIsBlocked = 'The user is blocked'
+export const UserIsBlocked = 'Пользователь заблокирован.'

@@ -15,7 +15,7 @@
         min-h-[600px] m-center shadow-sm border-grey;
     }
     .profile-head {
-        @apply text-2xl mt-[30px] mb-[20px]
+        @apply text-xl mt-[30px] mb-[20px]
     }
 }
 

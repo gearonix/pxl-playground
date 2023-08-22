@@ -20,7 +20,8 @@ export class UsersService extends Service {
         password: false,
         userId: true,
         phoneNumber: true,
-        isAdmin: true
+        isAdmin: true,
+        username: true
       }
     })
   }

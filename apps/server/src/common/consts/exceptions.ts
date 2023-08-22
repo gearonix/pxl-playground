@@ -1,1 +1,1 @@
-export const NotEnoughRightsException = 'Not enough rights.'
+export const NotEnoughRightsException = 'Недостаточно прав.'

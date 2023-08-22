@@ -18,7 +18,7 @@ export const EndPoints = {
     blockUser: '/admin/block-user',
     changeBalance: '/admin/change-balance',
     createUser: '/admin/create-user',
-    toggleSiteStatus: '/admin/toggle-site-status',
+    siteStatus: '/admin/site-status',
     createProduct: '/admin/create-product'
   }
 } as const

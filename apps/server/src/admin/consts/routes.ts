@@ -4,6 +4,6 @@ export enum AdminRoutes {
   CHANGE_USER_BALANCE = '/change-balance',
   CREATE_USER = '/create-user',
   // ---
-  CHANGE_SITE_STATUS = '/change-site-status',
+  SITE_STATUS = '/site-status',
   CREATE_PRODUCT = '/create-product'
 }

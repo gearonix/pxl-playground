@@ -6,7 +6,7 @@ import {
   WithUserId
 } from 'server-types'
 
-import { User } from '@/_prisma-types'
+import { SiteStatus, User } from '@/_prisma-types'
 import { AdminRoutes } from '@/admin/consts/routes'
 import {
   blockUserSchema,
@@ -64,14 +64,18 @@ export const adminController: Controller = (server, opts, done) => {
   )
 
   server.post<Body<ChangeSiteStatus>>(
-    AdminRoutes.CHANGE_SITE_STATUS,
+    AdminRoutes.SITE_STATUS,
     { schema: changeSiteStatusSchema },
     async (req) => {
       const entry = withEntry(req)
 
-      return globalService.toggleSiteStatus(entry.siteStatus)
+      return globalService.changeSiteStatus(entry.siteStatus as SiteStatus)
     }
   )
+
+  server.get(AdminRoutes.SITE_STATUS, async () => {
+    return globalService.getSiteStatus()
+  })
 
   server.post<Body<CreateProduct>>(
     AdminRoutes.CREATE_PRODUCT,

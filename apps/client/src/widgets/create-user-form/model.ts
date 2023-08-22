@@ -1,4 +1,5 @@
 import { createEffect, createEvent, createStore, sample } from 'effector'
+import { Notify } from 'quasar'
 import { User } from 'server/src/_prisma-types'
 import { CreateUserEntry } from 'server-types'
 
@@ -8,6 +9,7 @@ import { httpService } from '@/shared/config/http-service'
 import { removeCharacters } from '@/shared/lib/common'
 import { FetchError } from '@/shared/types/http'
 import { userCreated } from '@/widgets/admin-users/model'
+import { showNotificationPassword } from '@/widgets/create-user-form/lib'
 
 export interface CreateUserResponse extends User {
   decryptedPassword: string
@@ -35,7 +37,17 @@ export const createUserFx = createEffect<CreateUserEntry, User, FetchError>(
 
 sample({
   clock: createUserFx.doneData,
+  fn: (user: CreateUserResponse) => {
+    showNotificationPassword(user.decryptedPassword)
+
+    return user
+  },
   target: [userCreated, resetForm]
+})
+
+sample({
+  clock: createUserFx.doneData,
+  fn: (user: User) => {}
 })
 
 sample({

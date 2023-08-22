@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {allowedPaths} from '@/app/auth-guard/config'
 import {useLoadingBar} from '@/app/auth-guard/hooks/useLoadingBar'
 import {RoutePaths} from '@/shared/config/paths'
 import {useStore} from '@/shared/hooks'

@@ -26,3 +26,7 @@ export interface CreateProduct {
   cusa?: string
   cost: number
 }
+
+export interface GetSiteStatus {
+  siteStatus: string
+}

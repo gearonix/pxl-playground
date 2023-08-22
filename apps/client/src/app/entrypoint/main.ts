@@ -1,6 +1,6 @@
 import '../styles/import'
 
-import { LoadingBar, Quasar } from 'quasar'
+import { LoadingBar, Notify, Quasar } from 'quasar'
 import { createApp } from 'vue'
 
 import { router } from '../router'
@@ -13,7 +13,8 @@ export const bootstrap = () => {
 
   app.use(Quasar, {
     plugins: {
-      LoadingBar
+      LoadingBar,
+      Notify
     }
   })
 

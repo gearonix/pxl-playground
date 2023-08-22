@@ -21,8 +21,8 @@ const onSubmit = () => {
 
 <template>
   <div
-    class="w-[365px] h-[510px] rounded-md drop-shadow-md px-[35px] pt-[30px] bg-grey-2 mt-[40px] m-center">
-    <h3 class="text-xl font-bold text-neutral-800">Добро пожаловать!</h3>
+    class="w-[365px] h-[510px] rounded-md drop-shadow-md px-[35px] pt-[30px] bg-grey-2 mt-[65px] m-center">
+    <h3 class="text-xl text-neutral-800">Добро пожаловать!</h3>
     <q-form class="full-width mt-[40px]" @submit="onSubmit">
       <q-input
         v-model="formValues.phone"

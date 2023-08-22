@@ -58,6 +58,10 @@ export class AuthService {
       return reply.throwError(reply, { msg: UserIsBlocked })
     }
 
+    if (!user.isAdmin) {
+      await this.globalService.checkGlobalSettings(reply)
+    }
+
     req.user = user
 
     done()
