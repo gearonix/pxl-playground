@@ -12,7 +12,8 @@
     }
     .page-container {
         @apply w-[90%] mt-[35px] rounded-2xl p-[40px]
-        min-h-[600px] m-center shadow-sm border-grey;
+        min-h-[600px] m-center shadow-sm border-grey lg:w-[95%]
+        lg:p-[15px] md-s1:p-[10px] md-s1:pb-[20px];
     }
     .profile-head {
         @apply text-xl mt-[30px] mb-[20px]

@@ -57,8 +57,8 @@ const onSubmit = () => {
       />
       <q-btn
         outline
-        color="secondary"
-        label="Создать товар"
+        color="primary"
+        label="Добавить товар"
         class="full-width mt-[44px]"
         type="submit" />
     </q-form>

@@ -19,7 +19,7 @@ const columns = createOrderColumns()
 </script>
 
 <template>
-  <div class="mt-[45px] p-[0px] max-w-[60%]">
+  <div class="mt-[45px] p-[0px] max-w-[771px]">
   <q-table
       flat bordered
       :rows="userOrders"

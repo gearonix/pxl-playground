@@ -6,6 +6,7 @@ import {computed} from 'vue'
 import {onMounted} from 'vue'
 import {changeSiteStatusFx} from './model'
 import {$siteStatus, getSiteStatusFx} from './model'
+import {Logout} from '@/features/logout'
 
 const siteStatus = useStore($siteStatus)
 
@@ -27,9 +28,10 @@ const changeSiteStatus = () => {
   <h3 class="profile-head mb-[10px]">Изменить статус сайта</h3>
   <p class="text-grey-9 max-w-[350px] my-[0px]">Вы можете выключить сайт на время,
     или перевести его в рабочее состояние.</p>
-  <q-btn color="red mt-[27px]" glossy :outline="isWorking" @click="changeSiteStatus">
+  <q-btn color="red mt-[27px]" glossy :outline="!isWorking" @click="changeSiteStatus">
     {{ isWorking ?
       'Выключить сайт' :
       'Перевести в рабочее состояние' }}
   </q-btn>
+ <Logout/>
 </template>

@@ -1,5 +1,6 @@
 <script  lang="ts" setup="">
 
+import {Logout} from '@/features/logout'
 import {$profileTab} from '@/widgets/profile-header/model'
 import {ChangeDeliveryAddress} from '@/features/change-delivery-address'
 import {useStore} from '@/shared/hooks'
@@ -20,5 +21,9 @@ const profileTab = useStore($profileTab)
     <h4 class="profile-head">Заказы</h4>
 
     <ProfileOrders />
+  </div>
+
+  <div v-if="profileTab === 'balance'">
+    <Logout/>
   </div>
 </template>

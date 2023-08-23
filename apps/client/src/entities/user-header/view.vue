@@ -21,12 +21,12 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="flex items-end">
+  <div class="flex items-end lg:flex-col lg:!items-start lg:gap-[25px]">
     <div class="flex gap-[22px] border-b
-    py-[13px] min-w-[480px]">
-      <img src="/default-avatar.png" class="h-[72px] w-[72px]">
+    py-[13px] min-w-[480px] md-s1:min-w-[200px] md-s1:w-max">
+      <img src="/default-avatar.png" class="h-[72px] w-[72px] md-s1:h-[55px] md-s1:w-[55px]">
       <div>
-        <h3 class="text-xl mt-[15px] text-grey-9">
+        <h3 class="text-xl mt-[15px] text-grey-9 md-s1:!text-sm">
           {{ auth.username }}
           <em v-if="isAdmin">(Администратор)</em>
         </h3>

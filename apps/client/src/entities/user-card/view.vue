@@ -30,7 +30,7 @@ const { ordersCount, discsCount } = useOrdersCount(user)
 </script>
 
 <template>
-  <div :class="`border-grey w-[100%] h-[65px]
+  <div :class="`border-grey w-[100%] min-h-[65px] p-[20px]
   mt-[15px] rounded flex px-[20px] items-center relative gap-[28px]
    ${user.isBlocked ? 'bg-grey-2': 'bg-grey-1'}`">
     <img class="block w-[47px] h-[47px]" src="/default-avatar.png" />
@@ -47,7 +47,7 @@ const { ordersCount, discsCount } = useOrdersCount(user)
              size="sm" @click="blockUser" :disabled="user.isBlocked"
       />
     </div>
-    <div>
+    <div class="md:w-[100%] md:flex md:justify-between">
       <h3 class="text-sm text-grey-10">Кол-во дисков: {{ ordersCount }} </h3>
       <h3 class="text-sm text-grey-7">Кол-во заказов {{ discsCount }}</h3>
     </div>

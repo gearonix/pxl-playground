@@ -18,7 +18,7 @@ onMounted(() => {
 
 <template>
     <h3 class="profile-head">Пользователи</h3>
-   <div class="max-h-[620px] min-h-[250px] overflow-y-auto w-[70%]
+   <div class="max-h-[620px] min-h-[250px] overflow-y-auto max-w-[1107px]
    custom-scrollbar p-[15px] border-stone-300 border-y">
      <UserCard v-for="user in users" :user="user"/>
      <h3
