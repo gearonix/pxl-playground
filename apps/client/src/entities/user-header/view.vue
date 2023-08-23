@@ -18,8 +18,6 @@ const emit = defineEmits<{
   edit: [value: T]
 }>()
 
-console.log(auth)
-
 </script>
 
 <template>

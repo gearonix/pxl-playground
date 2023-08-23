@@ -15,5 +15,5 @@ const tabs = createTabs()
 </script>
 
 <template>
- <UserHeader @change="setProfileTab" :tab="profileTab" :tabs="tabs"/>
+ <UserHeader @edit="setProfileTab" :tab="profileTab" :tabs="tabs"/>
 </template>

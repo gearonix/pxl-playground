@@ -1,4 +1,5 @@
-import { createEffect, createStore } from 'effector'
+import { createEffect, createStore, sample } from 'effector'
+import { Notify } from 'quasar'
 import { SiteStatus } from 'server/src/_prisma-types'
 import { ChangeSiteStatus } from 'server-types'
 
@@ -37,3 +38,13 @@ $siteStatus.on(
   [getSiteStatusFx.doneData, changeSiteStatusFx.doneData],
   (_, s) => s.siteStatus as SiteStatus
 )
+
+sample({
+  clock: changeSiteStatusFx.doneData,
+  fn: () => {
+    Notify.create({
+      message: 'Статус сайта изменен.',
+      color: 'negative'
+    })
+  }
+})

@@ -19,4 +19,3 @@ $users
   .on(getAllUsersFx.doneData, (_, val) => val)
   .on(userCreated, (s, user) => [...s, user])
 
-$users.watch(console.log)

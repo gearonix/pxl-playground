@@ -2,7 +2,6 @@
 
 import {useStore} from '@/shared/hooks'
 import {createOrderColumns} from '@/widgets/profile-orders/lib'
-import {watch} from 'vue'
 import {$userOrders} from './model'
 import {getUserOrdersFx} from './model'
 import {onMounted} from 'vue'
@@ -11,6 +10,7 @@ import dayjs from 'dayjs'
 onMounted(() => {
   getUserOrdersFx()
 })
+
 const userOrders = useStore($userOrders)
 
 const columns = createOrderColumns()

@@ -7,6 +7,10 @@ export const createAdminTabs = (): UserTab<AdminTabs>[] => [
     label: 'Пользователи'
   },
   {
+    name: 'add-product',
+    label: 'Товары'
+  },
+  {
     name: 'site-status',
     label: 'Статус сайта'
   }
