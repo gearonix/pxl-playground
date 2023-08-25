@@ -1,4 +1,5 @@
 import {
+  ChangeOrderStatus,
   ChangeSiteStatus,
   CreateProduct,
   CreateShipmentEntry,
@@ -11,6 +12,7 @@ import { Shipment, SiteStatus, User } from '@/_prisma-types'
 import { AdminRoutes } from '@/admin/consts/routes'
 import {
   blockUserSchema,
+  changeOrderStatusSchema,
   changeSiteStatusSchema,
   changeUserBalanceSchema,
   createProductSchema,
@@ -104,6 +106,18 @@ export const adminController: Controller = (server, opts, done) => {
   server.get(AdminRoutes.SHIPMENTS, async (): Promise<Shipment[]> => {
     return shipmentService.getShipments()
   })
+
+  server.put<Body<ChangeOrderStatus>>(
+    AdminRoutes.CHANGE_ORDER_STATUS,
+    {
+      schema: changeOrderStatusSchema
+    },
+    async (req) => {
+      const entry = withEntry(req)
+
+      return productService.changeOrderStatus(entry)
+    }
+  )
 
   done()
 }

@@ -22,6 +22,7 @@ export const EndPoints = {
     siteStatus: '/admin/site-status',
     createProduct: '/admin/create-product',
     createShipment: '/admin/create-shipment',
-    getOrders: '/admin/shipments'
+    getOrders: '/admin/shipments',
+    changeOrderStatus: '/admin/change-order-status'
   }
 } as const

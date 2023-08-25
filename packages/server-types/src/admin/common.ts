@@ -34,3 +34,8 @@ export interface GetSiteStatus {
 export interface CreateShipmentEntry {
   endDate: string
 }
+
+export interface ChangeOrderStatus {
+  orderId: number
+  status: string
+}

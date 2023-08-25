@@ -2,9 +2,11 @@
 
 import {useStore} from '@/shared/hooks'
 import {transformMysqlDate} from '@/shared/lib/date'
+import {changeOrderStatusFx} from '@/widgets/admin-orders/model'
 import {getAdminOrdersFx} from '@/widgets/admin-orders/model'
 import {$adminOrders} from '@/widgets/admin-orders/model'
 import {convertPhoneNumber} from '@/shared/lib/helpers'
+import {getOrderStatuses} from './lib'
 import {createOrderColumns} from './lib'
 import dayjs from 'dayjs'
 import {watch} from 'vue'
@@ -16,12 +18,8 @@ onMounted(() => {
   getAdminOrdersFx()
 })
 
-watch(adminOrders, (adminOrders) => {
-  console.log(adminOrders)
-})
-
 const columns = createOrderColumns()
-
+const orderStatuses = getOrderStatuses()
 
 </script>
 
@@ -54,10 +52,16 @@ const columns = createOrderColumns()
           <q-td key="totalAmount" :props="props">
             {{ props.row.totalAmount }}
           </q-td>
-          <q-td key="status" :props="props">
+          <q-td key="status" :props="props" class="bg-grey-2 cursor-pointer">
             <div class="text-pre-wrap">
               {{ props.row.status }}
             </div>
+            <q-popup-edit v-model="props.row.status" v-slot="scope">
+              <q-select v-model="scope.value"
+                        :options="orderStatuses"
+                        @update:model-value="(status) =>
+                        changeOrderStatusFx({status, orderId: props.row.id})"/>
+            </q-popup-edit>
           </q-td>
           <q-td key="createdAt" :props="props">
             <div class="text-pre-wrap">

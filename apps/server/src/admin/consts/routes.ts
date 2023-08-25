@@ -6,5 +6,6 @@ export enum AdminRoutes {
   SITE_STATUS = '/site-status',
   CREATE_PRODUCT = '/create-product',
   CREATE_SHIPMENT = '/create-shipment',
-  SHIPMENTS = '/shipments'
+  SHIPMENTS = '/shipments',
+  CHANGE_ORDER_STATUS = '/change-order-status'
 }

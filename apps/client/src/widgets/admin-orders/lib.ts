@@ -18,3 +18,11 @@ export const createOrderColumns = () => [
   { name: 'status', label: 'Статус', align: 'left' },
   { name: 'createdAt', label: 'Создан', align: 'left' }
 ]
+
+export const getOrderStatuses = () => [
+  'Оплачен, собирается',
+  'Собран',
+  'В пути',
+  'Прибыл',
+  'Готов к выдаче/отправке'
+]
