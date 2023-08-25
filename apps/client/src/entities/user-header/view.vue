@@ -35,9 +35,11 @@ const emit = defineEmits<{
         </h3>
       </div>
     </div>
-    <div class="border" style="min-width: 300px">
+    <div class="overflow-x-auto lg:w-[100%]">
       <q-tabs no-caps active-color="text-dark" indicator-color="transparent"
-              class="text-grey-8 h-[100%]" @update:model-value="val => {
+              class="text-grey-8"
+
+              @update:model-value="val => {
                 emit('edit', val)
               }"
               :model-value="props.tab">
