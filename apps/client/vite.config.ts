@@ -1,17 +1,17 @@
-import { defineConfig } from 'vite'
+import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import {resolve} from 'path'
+import { defineConfig } from 'vite'
 import webfontDownload from 'vite-plugin-webfont-dl'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 const interFont = 'https://fonts.googleapis.com/css2?family=Inter&display=swap'
 
 export default defineConfig({
-  plugins: [vue(), tsconfigPaths(),  webfontDownload([interFont])],
+  plugins: [vue(), tsconfigPaths(), webfontDownload([interFont])],
   resolve: {
     alias: {
-      '@/': `${resolve(__dirname, 'src')}/`,
-    },
+      '@/': `${resolve(__dirname, 'src')}/`
+    }
   },
   define: {
     'process.env': process.env

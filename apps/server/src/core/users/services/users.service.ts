@@ -21,7 +21,8 @@ export class UsersService extends Service {
         userId: true,
         phoneNumber: true,
         isAdmin: true,
-        username: true
+        username: true,
+        balance: true
       }
     })
   }

@@ -46,7 +46,7 @@ export const adminController: Controller = (server, opts, done) => {
   server.put<Body<SetUserBalance>>(
     AdminRoutes.CHANGE_USER_BALANCE,
     { schema: changeUserBalanceSchema },
-    async (req) => {
+    async (req): Promise<User> => {
       const entry = withEntry(req)
 
       return usersService.changeUserBalance(entry.userId, entry.balance)

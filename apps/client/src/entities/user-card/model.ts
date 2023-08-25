@@ -1,4 +1,4 @@
-import { createEffect, createStore, sample } from 'effector'
+import { createEffect, sample } from 'effector'
 import { User } from 'server/src/_prisma-types'
 import { SetUserBalance, WithUserId } from 'server-types'
 

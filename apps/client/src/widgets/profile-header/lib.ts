@@ -17,5 +17,9 @@ export const createTabs = (): UserTab<ProfileTabs>[] => [
   {
     name: 'balance',
     label: 'Баланс'
+  },
+  {
+    name: 'leave-account',
+    label: 'Выйти'
   }
 ]

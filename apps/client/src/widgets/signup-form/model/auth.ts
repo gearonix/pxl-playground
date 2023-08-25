@@ -12,7 +12,8 @@ export const $auth = createStore<AuthStore>({
   phoneNumber: null,
   userId: null,
   isAdmin: false,
-  username: null
+  username: null,
+  balance: null
 })
 
 $auth

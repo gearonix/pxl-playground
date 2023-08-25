@@ -7,7 +7,8 @@ export const EndPoints = {
     all: '/discs/all'
   },
   USER: {
-    deliveryAddress: '/users/delivery-address'
+    deliveryAddress: '/users/delivery-address',
+    balanceHistory: '/users/balance-history'
   },
   ORDERS: {
     createOrder: '/orders/create-order',

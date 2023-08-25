@@ -10,5 +10,9 @@ body {
   font-family: 'Inter', sans-serif !important;
 }
 
+.q-card__section--vert {
+  padding: 7px;
+}
+
 
 </style>

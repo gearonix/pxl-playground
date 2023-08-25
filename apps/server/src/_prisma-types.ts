@@ -7,6 +7,12 @@ export enum SiteStatus {
     CLOSED = 'CLOSED',
 }
 
+export enum BalanceStatus {
+    POSITIVE = 'POSITIVE',
+    NEGATIVE = 'NEGATIVE',
+    NEUTRAL = 'NEUTRAL',
+}
+
 
 export interface User {
     userId: number,
@@ -42,5 +48,13 @@ export interface UserOrder {
 
 export interface GlobalSettings {
     id: number,
-    IS_SITE_DOWN: SiteStatus,
+    SITE_STATUS: SiteStatus,
+}
+
+export interface BalanceChange {
+    id: number,
+    userId: number,
+    type: BalanceStatus,
+    difference: number,
+    createdAt: Date,
 }

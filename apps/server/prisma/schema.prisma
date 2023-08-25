@@ -45,8 +45,21 @@ model GlobalSettings {
   SITE_STATUS SiteStatus
 }
 
+model BalanceChange {
+  id Int @id @default(autoincrement())
+  userId Int
+  type BalanceStatus
+  difference Int @default(0)
+  createdAt DateTime @default(now())
+}
 
 enum SiteStatus {
   WORKING
   CLOSED
+}
+
+enum BalanceStatus {
+  POSITIVE
+  NEGATIVE
+  NEUTRAL
 }

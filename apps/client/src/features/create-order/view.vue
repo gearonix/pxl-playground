@@ -16,9 +16,8 @@ const totalAmount = useStore($totalAmount)
       outline
       :label="`Сформировать заказ: ${totalAmount} р.`"
       :disable="totalAmount === 0"
-      dense
       type="submit" size="small"
       @click="createOrder"
-      class="text-xs bg-grey-1 px-[5px]"
+      class="text-xs bg-grey-1 px-[10px]"
   />
 </template>

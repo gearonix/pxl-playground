@@ -1,6 +1,6 @@
 import { createEvent, createStore } from 'effector'
 
-export type ProfileTabs = 'data' | 'balance' | 'orders'
+export type ProfileTabs = 'data' | 'balance' | 'orders' | 'leave-account'
 
 export const setProfileTab = createEvent<ProfileTabs>()
 

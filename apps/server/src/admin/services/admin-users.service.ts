@@ -1,11 +1,8 @@
 import { FastifyReply } from 'fastify'
-import {
-  CreateUserEntry,
-  CreateUserReply,
-  CreateUserWithPassword
-} from 'server-types'
+import { CreateUserEntry, CreateUserWithPassword } from 'server-types'
 
-import { User } from '@/_prisma-types'
+import { BalanceStatus, User } from '@/_prisma-types'
+import { getUserBalanceChange } from '@/admin/lib/get-user-balance-change'
 import { UserAlreadyExists } from '@/auth/lib/consts/exceptions'
 import { generateUuid } from '@/common/lib/generate-uuid'
 import { UsersService } from '@/core/users'
@@ -33,8 +30,10 @@ export class AdminUsersService extends UsersService {
     })
   }
 
-  async changeUserBalance(userId: number, balance: number) {
-    return this.server.prisma.user.update({
+  async changeUserBalance(userId: number, balance: number): Promise<User> {
+    const user = await this.findUserById(userId)
+
+    const updatedUser = await this.server.prisma.user.update({
       where: {
         userId
       },
@@ -42,6 +41,21 @@ export class AdminUsersService extends UsersService {
         balance
       }
     })
+
+    const [balanceStatus, difference] = getUserBalanceChange(
+      user.balance,
+      updatedUser.balance
+    )
+
+    await this.server.prisma.balanceChange.create({
+      data: {
+        userId,
+        type: balanceStatus,
+        difference
+      }
+    })
+
+    return updatedUser
   }
 
   public async registerUser(entry: CreateUserEntry, reply: FastifyReply) {

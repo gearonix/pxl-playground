@@ -1,5 +1,6 @@
 import { CreateOrderPayload, DeliveryAddressPayload } from 'server-types'
 
+import { BalanceChange } from '@/_prisma-types'
 import { useAuthGuard } from '@/common/guards/use-auth-guard'
 import { withEntry, withUserId } from '@/common/modifiers'
 import { Body, Controller } from '@/common/types/fastify'
@@ -35,6 +36,15 @@ export const usersController: Controller = (server, opts, done) => {
         userId,
         entry.deliveryAddress
       )
+    }
+  )
+
+  server.get(
+    UsersRoutes.BALANCE_HISTORY,
+    async (req): Promise<BalanceChange[]> => {
+      const userId = withUserId(req)
+
+      return userControlService.getBalanceHistory(userId)
     }
   )
 

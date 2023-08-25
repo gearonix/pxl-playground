@@ -1,4 +1,4 @@
-import { Nullable } from '@/shared/types/common.ts'
+import { Nullable } from '@/shared/types/common'
 
 export interface SignupFormValues {
   phone: string
@@ -11,4 +11,5 @@ export interface AuthStore {
   phoneNumber: Nullable<string>
   isAdmin: boolean
   username: Nullable<string>
+  balance: Nullable<number>
 }

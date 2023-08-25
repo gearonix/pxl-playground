@@ -26,4 +26,15 @@ export class UserControlService extends Service {
       }
     })
   }
+
+  async getBalanceHistory(userId: number) {
+    return this.server.prisma.balanceChange.findMany({
+      where: {
+        userId
+      },
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
+  }
 }
