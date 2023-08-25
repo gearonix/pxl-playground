@@ -1,22 +1,25 @@
 import {
   ChangeSiteStatus,
   CreateProduct,
+  CreateShipmentEntry,
   CreateUserEntry,
   SetUserBalance,
   WithUserId
 } from 'server-types'
 
-import { SiteStatus, User } from '@/_prisma-types'
+import { Shipment, SiteStatus, User } from '@/_prisma-types'
 import { AdminRoutes } from '@/admin/consts/routes'
 import {
   blockUserSchema,
   changeSiteStatusSchema,
   changeUserBalanceSchema,
   createProductSchema,
+  createShipmentSchema,
   createUserSchema
 } from '@/admin/schema'
 import { AdminGlobalService } from '@/admin/services/admin-global.service'
 import { AdminProductService } from '@/admin/services/admin-product.service'
+import { AdminShipmentService } from '@/admin/services/admin-shipment.service'
 import { AdminUsersService } from '@/admin/services/admin-users.service'
 import { useAdminGuard } from '@/common/guards'
 import { withEntry } from '@/common/modifiers'
@@ -26,6 +29,7 @@ export const adminController: Controller = (server, opts, done) => {
   const usersService = new AdminUsersService(server)
   const productService = new AdminProductService(server)
   const globalService = new AdminGlobalService(server)
+  const shipmentService = new AdminShipmentService(server)
 
   useAdminGuard(server)
 
@@ -86,6 +90,20 @@ export const adminController: Controller = (server, opts, done) => {
       return productService.createProduct(entry)
     }
   )
+
+  server.post<Body<CreateShipmentEntry>>(
+    AdminRoutes.CREATE_SHIPMENT,
+    { schema: createShipmentSchema },
+    async (req, reply): Promise<Shipment> => {
+      const entry = withEntry(req)
+
+      return shipmentService.createShipment(entry, reply)
+    }
+  )
+
+  server.get(AdminRoutes.SHIPMENTS, async (): Promise<Shipment[]> => {
+    return shipmentService.getShipments()
+  })
 
   done()
 }

@@ -15,7 +15,10 @@ export const ordersController: Controller = (server, opts, done) => {
 
   server.post<Body<CreateOrderPayload>>(
     OrdersRoutes.CREATE_ORDER,
-    { schema: createOrderSchema },
+    {
+      schema: createOrderSchema,
+      onRequest: [orderService.checkShipmentActivity.bind(orderService)]
+    },
     async (req) => {
       const entry = withEntry(req)
       const userId = withUserId(req)

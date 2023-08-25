@@ -43,6 +43,8 @@ export interface UserOrder {
     totalAmount: number,
     id: number,
     createdAt: Date,
+    shipmentId: number,
+    shipment: Shipment,
     user: User,
 }
 
@@ -57,4 +59,11 @@ export interface BalanceChange {
     type: BalanceStatus,
     difference: number,
     createdAt: Date,
+}
+
+export interface Shipment {
+    id: number,
+    startDate: Date,
+    endDate: Date,
+    orders: UserOrder[],
 }

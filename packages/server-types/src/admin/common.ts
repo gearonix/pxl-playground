@@ -30,3 +30,7 @@ export interface CreateProduct {
 export interface GetSiteStatus {
   siteStatus: string
 }
+
+export interface CreateShipmentEntry {
+  endDate: string
+}

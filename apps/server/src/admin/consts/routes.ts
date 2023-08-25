@@ -3,7 +3,8 @@ export enum AdminRoutes {
   BLOCK_USER = '/block-user',
   CHANGE_USER_BALANCE = '/change-balance',
   CREATE_USER = '/create-user',
-  // ---
   SITE_STATUS = '/site-status',
-  CREATE_PRODUCT = '/create-product'
+  CREATE_PRODUCT = '/create-product',
+  CREATE_SHIPMENT = '/create-shipment',
+  SHIPMENTS = '/shipments'
 }

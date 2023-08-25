@@ -4,6 +4,8 @@ import {$adminTab} from '@/widgets/admin-header/model'
 import {AdminUsers} from '@/widgets/admin-users'
 import {ChangeSiteStatus} from '@/features/change-site-status'
 import {AddProductForm} from '@/widgets/add-product-form'
+import {CreateShipment} from '@/features/create-shipment'
+import {AdminOrders} from '@/widgets/admin-orders'
 
 const adminTab = useStore($adminTab)
 
@@ -17,6 +19,13 @@ const adminTab = useStore($adminTab)
   <div v-if="adminTab === 'add-product'">
     <AddProductForm />
   </div>
+  <div v-if="adminTab === 'shipments'">
+    <CreateShipment />
+  </div>
+  <div v-if="adminTab === 'orders'">
+    <AdminOrders />
+  </div>
+
   <div v-if="adminTab === 'site-status'">
     <ChangeSiteStatus />
   </div>

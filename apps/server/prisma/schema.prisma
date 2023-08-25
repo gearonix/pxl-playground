@@ -37,6 +37,8 @@ model UserOrder {
   totalAmount Int
   id Int @id @default(autoincrement())
   createdAt DateTime @default(now())
+  shipmentId Int
+  shipment Shipment @relation(fields: [shipmentId], references: [id])
   user User @relation(fields: [createdBy], references: [userId])
 }
 
@@ -51,6 +53,13 @@ model BalanceChange {
   type BalanceStatus
   difference Int @default(0)
   createdAt DateTime @default(now())
+}
+
+model Shipment {
+  id Int @id @default(autoincrement())
+  startDate DateTime @default(now())
+  endDate DateTime
+  orders UserOrder[]
 }
 
 enum SiteStatus {

@@ -20,6 +20,8 @@ export const EndPoints = {
     changeBalance: '/admin/change-balance',
     createUser: '/admin/create-user',
     siteStatus: '/admin/site-status',
-    createProduct: '/admin/create-product'
+    createProduct: '/admin/create-product',
+    createShipment: '/admin/create-shipment',
+    getOrders: '/admin/shipments'
   }
 } as const
