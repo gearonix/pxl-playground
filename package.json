@@ -8,6 +8,7 @@
     "preview": "turbo run preview"
   },
   "devDependencies": {
+    "@lmpx-config/eslint": "^0.0.12",
     "@turbo/gen": "^1.9.7",
     "turbo": "latest"
   },

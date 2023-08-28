@@ -22,7 +22,7 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
 
         extend: {
             root: true,
-            ignorePatterns: ["!**/*"],
+            ignorePatterns: ["!**/*", "dist", ".turbo"],
             plugins: ["prefer-arrow"],
             parserOptions: {
                 parser: '@typescript-eslint/parser',

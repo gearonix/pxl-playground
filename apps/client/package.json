@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "dotenv -e ../../.env.dev vite",
-    "build": "vue-tsc && vite build",
+    "build": "dotenv -e ../../.env.prod vite build",
     "preview": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx}\" --fix && prettier --write \"./src/**/*.{ts}\""
   },

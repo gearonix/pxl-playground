@@ -6,13 +6,13 @@
     "clean": "rimraf dist",
     "dev": "dotenv -e ../../.env.dev npm run dev-core",
     "dev-core": "ts-node-dev --respawn -r tsconfig-paths/register -T src/app.ts",
-    "build": "npm run clean && tsc && tsc-alias",
+    "build": "npm run clean && dotenv -e ../../.env.prod tsc && tsc-alias",
     "prisma": "npm run prisma:migrate:dev && npm run prisma:types && npm run prisma:generate",
     "prisma:migrate:dev": "dotenv -e ../../.env.dev prisma migrate dev",
-    "prisma:migrate:prod": "dotenv -e ../../.env.prod prisma migrate deploy",
+    "prisma:push:prod": "dotenv -e ../../.env.prod prisma db push",
     "prisma:generate": "dotenv -e ../../.env.dev npx prisma generate",
     "prisma:types": "npx @kalissaac/prisma-typegen ./src/_prisma-types.ts ./prisma/schema.prisma",
-    "preview": "node dist/app",
+    "preview": "dotenv -e ../../.env.prod node dist/app",
     "lint": "eslint \"**/*.{ts}\" --fix && prettier --write \"./src/**/*.{ts}\""
   },
   "dependencies": {
