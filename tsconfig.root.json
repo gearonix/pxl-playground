@@ -1,0 +1,13 @@
+{
+  "extends": "config/tsconfig/base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {},
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

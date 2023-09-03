@@ -1,7 +1,5 @@
-const configure = require('config/eslint')
-
-const eslintConfig = configure({
-    root: __dirname
-})
-
-module.exports = eslintConfig
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: ['../../.eslintrc.js'],
+  ignorePatterns: ['!**/*', 'dist', '.turbo']
+}

@@ -1,7 +1,6 @@
 <script  lang="ts" setup="">
 
-import dayjs from 'dayjs'
-import {onMounted,watch} from 'vue'
+import {onMounted} from 'vue'
 
 import {useStore} from '@/shared/hooks'
 import {transformMysqlDate} from '@/shared/lib/date'
@@ -9,6 +8,7 @@ import {convertPhoneNumber} from '@/shared/lib/helpers'
 import {$adminOrders,changeOrderStatusFx,getAdminOrdersFx} from '@/widgets/admin-orders/model'
 
 import {createOrderColumns,getOrderStatuses} from './lib'
+import {exportExcel} from './xlsx/export'
 
 
 const adminOrders = useStore($adminOrders)
@@ -20,12 +20,22 @@ onMounted(() => {
 const columns = createOrderColumns()
 const orderStatuses = getOrderStatuses()
 
+
 </script>
 
 <template>
   <h3 class="profile-head">
     Заказы
   </h3>
+  <q-btn
+      text-color="secondary"
+      outline
+      size="small"
+      label="Общий экспорт"
+      class="max-w-[350px]"
+      type="submit"
+      @click="() => exportExcel(adminOrders)"
+  />
 
   <div
     v-for="shipment in adminOrders"

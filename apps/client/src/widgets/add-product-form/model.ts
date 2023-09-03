@@ -9,22 +9,21 @@ import {
   showSuccessNotification
 } from '@/widgets/add-product-form/lib'
 
-export const addProductFx = createEffect<CreateProduct, void, FetchError>(
+export const addProductsFx = createEffect<CreateProduct[], void, FetchError>(
   async (payload) => {
-    console.log(payload)
     return httpService.url(EndPoints.ADMIN.createProduct).post(payload).json()
   }
 )
 
 sample({
-  clock: addProductFx.doneData,
+  clock: addProductsFx.doneData,
   fn: () => {
     showSuccessNotification()
   }
 })
 
 sample({
-  clock: addProductFx.failData,
+  clock: addProductsFx.failData,
   fn: () => {
     showErrorNotification()
   }

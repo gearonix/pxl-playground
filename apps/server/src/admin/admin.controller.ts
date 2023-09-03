@@ -93,13 +93,13 @@ export const adminController: Controller = (server, opts, done) => {
     return globalService.getSiteStatus()
   })
 
-  server.post<Body<CreateProduct>>(
+  server.post<Body<CreateProduct[]>>(
     AdminRoutes.CREATE_PRODUCT,
     { schema: createProductSchema },
     async (req) => {
       const entry = withEntry(req)
 
-      return productService.createProduct(entry)
+      return productService.createProducts(entry)
     }
   )
 

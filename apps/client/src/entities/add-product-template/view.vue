@@ -9,20 +9,20 @@ import {$addProductForm} from './model'
 const formValues = useVModel($addProductForm)
 
 const emit = defineEmits<{
-  submit: [formValues: CreateProduct]
+  submit: [formValues: CreateProduct[]]
 }>()
 
 const onSubmit = () => {
-  emit('submit', formValues.value)
+  emit('submit', [formValues.value])
 }
 
 </script>
 
 <template>
   <div
-    class="max-w-[400px] mt-[30px]"
+    class="max-w-[400px] mt-[15px]"
   >
-    <h3 class="text-xl text-neutral-800">
+    <h3 class="text-xl text-neutral-800 mt-[10px]">
       Добавить товар
     </h3>
     <q-form

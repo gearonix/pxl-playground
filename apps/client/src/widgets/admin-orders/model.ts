@@ -22,10 +22,6 @@ export const changeOrderStatusFx = createEffect<
   return httpService.url(EndPoints.ADMIN.changeOrderStatus).put(payload).json()
 })
 
-
-
-
-
 sample({
   clock: getAdminOrdersFx.doneData,
   target: $adminOrders
