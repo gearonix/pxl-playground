@@ -5,7 +5,9 @@ import { PriceTable } from '@/widgets/price-table'
 
 <template>
   <div class="px-[35px] md:px-[5px]">
-    <h3 class="text-2xl text-neutral-800 ml-[16px] mt-[15px] mb-[0px]">Выберите товар</h3>
+    <h3 class="text-2xl text-neutral-800 ml-[16px] mt-[15px] mb-[0px]">
+      Выберите товар
+    </h3>
     <TabsPanels />
     <PriceTable />
   </div>

@@ -1,4 +1,5 @@
 import { kebabCaseAppName } from 'config/consts'
+
 import { LocalStorage, LocalStorageKeys } from '@/shared/config/local-storage'
 
 export class LocalStorageClient {

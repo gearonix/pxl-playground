@@ -5,5 +5,5 @@ import {addProductFx} from '@/widgets/add-product-form/model'
 </script>
 
 <template>
-  <AddProductTemplate @submit="addProductFx"/>
+  <AddProductTemplate @submit="addProductFx" />
 </template>

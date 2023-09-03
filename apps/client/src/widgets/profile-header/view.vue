@@ -1,10 +1,11 @@
 <script  lang="ts" setup="">
 
-import {createTabs} from '@/widgets/profile-header/lib'
-import {$profileTab, setProfileTab} from './model'
-import {useStore} from '@/shared/hooks'
-import {$auth} from '@/widgets/signup-form'
 import {UserHeader} from '@/entities/user-header'
+import {useStore} from '@/shared/hooks'
+import {createTabs} from '@/widgets/profile-header/lib'
+import {$auth} from '@/widgets/signup-form'
+
+import {$profileTab, setProfileTab} from './model'
 
 
 const auth = useStore($auth)
@@ -15,5 +16,9 @@ const tabs = createTabs()
 </script>
 
 <template>
- <UserHeader @edit="setProfileTab" :tab="profileTab" :tabs="tabs"/>
+  <UserHeader
+    :tab="profileTab"
+    :tabs="tabs"
+    @edit="setProfileTab"
+  />
 </template>

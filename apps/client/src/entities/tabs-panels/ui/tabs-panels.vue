@@ -16,7 +16,10 @@ watch(tab, (tab) => {
 </script>
 <template>
   <div class="q-pa-md mb-[-20px]">
-    <div class="q-gutter-y-md" style="max-width: 400px">
+    <div
+      class="q-gutter-y-md"
+      style="max-width: 400px"
+    >
       <q-card>
         <q-tabs
           v-model="tab"
@@ -25,8 +28,13 @@ watch(tab, (tab) => {
           active-color="primary"
           indicator-color="primary"
           align="justify"
-          narrow-indicator>
-          <q-tab v-for="tab in discTypes" :name="tab" :label="tab" />
+          narrow-indicator
+        >
+          <q-tab
+            v-for="tab in discTypes"
+            :name="tab"
+            :label="tab"
+          />
         </q-tabs>
         <q-separator />
       </q-card>

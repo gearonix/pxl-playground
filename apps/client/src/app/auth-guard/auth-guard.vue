@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import {onMounted, watch} from 'vue'
+import {useRouter} from 'vue-router'
+
 import {useLoadingBar} from '@/app/auth-guard/hooks/useLoadingBar'
 import {RoutePaths} from '@/shared/config/paths'
 import {useStore} from '@/shared/hooks'
 import {$auth, validateUserFx} from '@/widgets/signup-form'
-import {onMounted, watch} from 'vue'
-import {useRouter} from 'vue-router'
+
 import {onForbiddenRoute} from './lib/onForbiddenRoute'
 
 const router = useRouter()
@@ -45,13 +47,13 @@ watch(
 </script>
 
 <template>
-  <slot v-if="!isPending"/>
+  <slot v-if="!isPending" />
   <q-circular-progress
-      v-else
-      indeterminate
-      rounded
-      size="40px"
-      color="grey-4"
-      class="absolute-center"
+    v-else
+    indeterminate
+    rounded
+    size="40px"
+    color="grey-4"
+    class="absolute-center"
   />
 </template>

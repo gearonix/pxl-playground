@@ -5,10 +5,6 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
         root,
         presets: [
             presets.node(),
-            presets.prettier({
-                singleQuote: true,
-                trailingComma: "none",
-            }),
             presets.typescript({
                 tsconfig, root
             }),
@@ -17,7 +13,8 @@ module.exports = ({ root, tsconfig = 'tsconfig.json', rules = {} }) => {
                     newline: true
                 }
             }),
-            presets.effector()
+            presets.effector(),
+            presets.vue({ version: 'detect' })
         ],
 
         extend: {

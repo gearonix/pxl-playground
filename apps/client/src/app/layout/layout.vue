@@ -4,5 +4,5 @@ import { Header } from '@/widgets/header'
 
 <template>
   <Header />
-  <slot></slot>
+  <slot />
 </template>

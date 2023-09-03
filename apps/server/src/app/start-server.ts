@@ -1,4 +1,5 @@
 import { isDev, serverPort } from '@/common/consts/env'
+
 import { createServer } from './create-server'
 
 export const startServer = async () => {

@@ -1,12 +1,10 @@
 <script setup lang="ts">
+import {Disc} from 'apps/server/src/_prisma-types'
+import {computed,onMounted, reactive,ref,watch} from 'vue'
+
 import {useStore} from '@/shared/hooks'
 import {addDiscToBasket} from '@/widgets/header/model/$basket'
 import {createRows} from '@/widgets/price-table/lib/create-rows'
-import {Disc} from 'apps/server/src/_prisma-types'
-import {reactive} from 'vue'
-import {ref} from 'vue'
-import {computed} from 'vue'
-import {onMounted, watch} from 'vue'
 
 import {createColumns} from '../lib/create-column'
 import {$discs, $discType} from '../model/$discs'
@@ -60,26 +58,51 @@ const addToBasket = (disc: Disc, amount: string) => {
     >
       <template #body="props">
         <q-tr :props="props">
-          <q-td key="name" :props="props">
+          <q-td
+            key="name"
+            :props="props"
+          >
             {{ props.row.name }}
           </q-td>
-          <q-td key="cost" :props="props">
+          <q-td
+            key="cost"
+            :props="props"
+          >
             {{ props.row.cost }}
           </q-td>
-          <q-td key="cusa" :props="props">
+          <q-td
+            key="cusa"
+            :props="props"
+          >
             <div class="text-pre-wrap">
               {{ props.row.cusa }}
             </div>
           </q-td>
-          <q-td key="amount" :props="props" class="bg-grey-1">
+          <q-td
+            key="amount"
+            :props="props"
+            class="bg-grey-1"
+          >
             {{ props.row.amount }}
-            <q-popup-edit v-model="props.row.amount"
-                          title="Измените количество" buttons v-slot="scope"
-                          @save="e => addToBasket(props.row, e)">
-              <q-input type="number" v-model="scope.value" dense autofocus />
+            <q-popup-edit
+              v-slot="scope"
+              v-model="props.row.amount"
+              title="Измените количество"
+              buttons
+              @save="e => addToBasket(props.row, e)"
+            >
+              <q-input
+                v-model="scope.value"
+                type="number"
+                dense
+                autofocus
+              />
             </q-popup-edit>
           </q-td>
-          <q-td key="type" :props="props">
+          <q-td
+            key="type"
+            :props="props"
+          >
             {{ props.row.type }}
           </q-td>
         </q-tr>

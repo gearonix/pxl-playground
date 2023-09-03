@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import { SignupFormTemplate } from '@/entities/signup-form-template'
 import { useStore } from '@/shared/hooks'
 import { removeCharacters } from '@/shared/lib/common'
 import { FetchError } from '@/shared/types/http'
 import { $auth } from '@/widgets/signup-form/model/auth'
+
 import { signupFx } from '../model/signup.fx'
 import { SignupFormValues } from '../types'
 
@@ -27,5 +29,8 @@ signupFx.failData.watch((error: FetchError) => {
 </script>
 
 <template>
-  <SignupFormTemplate @submit="onSubmit" :errorMessage="errorMessage"/>
+  <SignupFormTemplate
+    :error-message="errorMessage"
+    @submit="onSubmit"
+  />
 </template>

@@ -10,12 +10,17 @@ import {RoutePaths} from '@/shared/config/paths'
   <header
     class="w-full h-[73px] bg-grey-1 shadow-sm flex items-center
     border-grey justify-between
-    px-[70px] xl-s1:px-[20px] md-s1:!justify-center md-s1:h-[65px]">
+    px-[70px] xl-s1:px-[20px] md-s1:!justify-center md-s1:h-[65px]"
+  >
     <router-link :to="RoutePaths.MAIN">
-      <img :src="logo" alt="logo" class="w-[155px] h-[50px] cursor-pointer md-s1:hidden" />
+      <img
+        :src="logo"
+        alt="logo"
+        class="w-[155px] h-[50px] cursor-pointer md-s1:hidden"
+      >
     </router-link>
-    <Navbar/>
-    <HeaderRightSection/>
+    <Navbar />
+    <HeaderRightSection />
   </header>
 </template>
 

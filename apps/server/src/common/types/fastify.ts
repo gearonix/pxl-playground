@@ -1,5 +1,5 @@
-import {FastifyRequest} from 'fastify'
-import { DoneFuncWithErrOrRes, FastifyInstance } from 'fastify'
+import {DoneFuncWithErrOrRes, FastifyInstance,FastifyRequest } from 'fastify'
+
 import { AnyObject } from '@/common/types/common'
 
 export interface Body<T> {

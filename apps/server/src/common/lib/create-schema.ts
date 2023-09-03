@@ -1,4 +1,5 @@
 import S from 'fluent-json-schema'
+
 import { AnyObject } from '@/common/types/common'
 
 export const createSchema = (schema: AnyObject) => ({

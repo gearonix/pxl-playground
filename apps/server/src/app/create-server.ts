@@ -3,8 +3,10 @@ import cors from '@fastify/cors'
 import securityHeaders from '@fastify/helmet'
 import swagger from '@fastify/swagger'
 import { fastify, FastifyInstance, FastifyServerOptions } from 'fastify'
+
 import { exceptionModule } from '@/app/modules/exception-module'
 import { jwtAuthModule } from '@/app/modules/jwt-auth'
+
 import { corsOptions } from './config/cors'
 import { swaggerOptions } from './config/swagger'
 import { healthCheckModule, prismaModule, routerModule } from './modules'

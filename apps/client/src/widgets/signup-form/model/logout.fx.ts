@@ -1,5 +1,7 @@
 import { createEffect, sample } from 'effector'
+
 import { LocalStorageClient } from '@/shared/lib/local-storage.ts'
+
 import { $auth, clearUser } from './auth.ts'
 
 const storage = new LocalStorageClient()
