@@ -26,7 +26,17 @@ export const blockUserFx = createEffect<WithUserId, User, FetchError>(
   }
 )
 
+export const deleteUserFx = createEffect<WithUserId, User, FetchError>(
+  async (payload) => {
+    return httpService
+      .url(EndPoints.ADMIN.deleteUser)
+      .json(payload)
+      .delete()
+      .json<User>()
+  }
+)
+
 sample({
-  clock: blockUserFx.doneData,
+  clock: [blockUserFx.doneData, deleteUserFx.doneData],
   target: getAllUsersFx
 })

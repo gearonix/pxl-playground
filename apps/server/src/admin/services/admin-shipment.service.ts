@@ -44,6 +44,9 @@ export class AdminShipmentService extends Service {
             user: true
           }
         }
+      },
+      orderBy: {
+        startDate: 'desc'
       }
     })
   }

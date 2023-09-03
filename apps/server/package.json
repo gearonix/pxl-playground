@@ -10,6 +10,7 @@
     "prisma": "npm run prisma:migrate:dev && npm run prisma:types && npm run prisma:generate",
     "prisma:migrate:dev": "dotenv -e ../../.env.dev prisma migrate dev",
     "prisma:push:prod": "dotenv -e ../../.env.prod prisma db push",
+    "prisma:migrate prod": "dotenv -e ../../.env.prod prisma migrate prod",
     "prisma:generate": "dotenv -e ../../.env.dev npx prisma generate",
     "prisma:types": "npx @kalissaac/prisma-typegen ./src/_prisma-types.ts ./prisma/schema.prisma",
     "preview": "dotenv -e ../../.env.prod node dist/app",

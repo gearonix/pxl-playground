@@ -11,13 +11,13 @@ import {
 import { Shipment, SiteStatus, User } from '@/_prisma-types'
 import { AdminRoutes } from '@/admin/consts/routes'
 import {
-  blockUserSchema,
   changeOrderStatusSchema,
   changeSiteStatusSchema,
   changeUserBalanceSchema,
   createProductSchema,
   createShipmentSchema,
-  createUserSchema
+  createUserSchema,
+  withUserIdSchema
 } from '@/admin/schema'
 import { AdminGlobalService } from '@/admin/services/admin-global.service'
 import { AdminProductService } from '@/admin/services/admin-product.service'
@@ -41,11 +41,21 @@ export const adminController: Controller = (server, opts, done) => {
 
   server.put<Body<WithUserId>>(
     AdminRoutes.BLOCK_USER,
-    { schema: blockUserSchema },
+    { schema: withUserIdSchema },
     async (req): Promise<User> => {
       const entry = withEntry(req)
 
-      return usersService.blockUser(entry.userId)
+      return usersService.toggleUserBlock(entry.userId)
+    }
+  )
+
+  server.delete<Body<WithUserId>>(
+    AdminRoutes.DELETE_USER,
+    { schema: withUserIdSchema },
+    async (req): Promise<User> => {
+      const entry = withEntry(req)
+
+      return usersService.deleteUser(entry.userId)
     }
   )
 

@@ -54,7 +54,10 @@ const addToBasket = (disc: Disc, amount: string) => {
       :rows="discsWithAmount"
       :columns="columns"
       row-key="name"
-      binary-state-sort style="min-height: 500px">
+      binary-state-sort
+      class="min-h-[500px] mt-[12px]"
+      :pagination="{rowsPerPage: 10}"
+    >
       <template #body="props">
         <q-tr :props="props">
           <q-td key="name" :props="props">

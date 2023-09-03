@@ -1,6 +1,7 @@
 import '../styles/import'
 
 import { LoadingBar, Notify, Quasar } from 'quasar'
+import langRu from 'quasar/lang/ru'
 import { createApp } from 'vue'
 
 import { router } from '../router'
@@ -15,7 +16,8 @@ export const bootstrap = () => {
     plugins: {
       LoadingBar,
       Notify
-    }
+    },
+    lang: langRu
   })
 
   LoadingBar.setDefaults({

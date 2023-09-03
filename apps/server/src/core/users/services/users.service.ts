@@ -22,7 +22,8 @@ export class UsersService extends Service {
         phoneNumber: true,
         isAdmin: true,
         username: true,
-        balance: true
+        balance: true,
+        isBlocked: true
       }
     })
   }

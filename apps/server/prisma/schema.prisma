@@ -39,7 +39,7 @@ model UserOrder {
   createdAt DateTime @default(now())
   shipmentId Int
   shipment Shipment @relation(fields: [shipmentId], references: [id])
-  user User @relation(fields: [createdBy], references: [userId])
+  user User @relation(fields: [createdBy], references: [userId], onDelete: Cascade)
 }
 
 model GlobalSettings {

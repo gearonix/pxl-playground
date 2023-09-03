@@ -19,13 +19,26 @@ export class AdminUsersService extends UsersService {
     })
   }
 
-  async blockUser(userId: number) {
+  async toggleUserBlock(userId: number) {
+    const user = await this.findUserById(userId)
+
     return this.server.prisma.user.update({
       where: {
         userId
       },
       data: {
-        isBlocked: true
+        isBlocked: !user.isBlocked
+      }
+    })
+  }
+
+  async deleteUser(userId: number) {
+    return this.server.prisma.user.delete({
+      where: {
+        userId
+      },
+      include: {
+        orders: true
       }
     })
   }

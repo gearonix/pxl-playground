@@ -1,4 +1,4 @@
-export { blockUserSchema } from './block-user.schema'
+export { withUserIdSchema } from 'src/admin/schema/with-user-id.schema'
 export { changeOrderStatusSchema } from './change-order-status.schema'
 export { changeSiteStatusSchema } from './change-site-status.schema'
 export { changeUserBalanceSchema } from './change-user-balance.schema'

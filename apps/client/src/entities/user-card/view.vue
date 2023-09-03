@@ -2,13 +2,10 @@
 
 import {useOrdersCount} from '@/entities/user-card/hooks'
 import {useChangeBalance} from '@/entities/user-card/hooks'
+import {deleteUserFx} from '@/entities/user-card/model'
 import {blockUserFx} from '@/entities/user-card/model'
-import {changeUserBalanceFx} from '@/entities/user-card/model'
-import {$userBalance} from '@/entities/user-card/model'
-import {useVModel} from 'effector-vue/composition'
 import {User} from 'server/src/_prisma-types'
 import {convertPhoneNumber} from '@/shared/lib/helpers'
-import {computed} from 'vue'
 import {ref} from 'vue'
 
 const { user } = defineProps<{
@@ -24,6 +21,13 @@ const blockUser = async () => {
     userId: user.userId
   })
 }
+
+const deleteUser = async () => {
+  await deleteUserFx({
+    userId: user.userId
+  })
+}
+
 
 const { ordersCount, discsCount } = useOrdersCount(user)
 
@@ -41,10 +45,15 @@ const { ordersCount, discsCount } = useOrdersCount(user)
     <div class="absolute text-grey-6 right-[20px] top-[4px]">ID: {{ user.userId }}</div>
     <div class="min-h-[35px] flex gap-[20px]">
       <q-input outlined label="Баланс (руб.)" dense
-               v-model="userBalance" @blur="() => changeBalance(userBalance)" :readonly="user.isBlocked"/>
-      <q-btn push color="white" text-color="red"
-             label="Заблокировать" class="h-[30px]"
-             size="sm" @click="blockUser" :disabled="user.isBlocked"
+               v-model="userBalance"
+               @blur="() => changeBalance(userBalance)" :readonly="user.isBlocked"/>
+      <q-btn push color="white" :text-color="user.isBlocked ? 'deep-orange' : 'red'"
+             :label="!user.isBlocked ? 'Заблокировать' : 'Разблокировать'" class="h-[30px]"
+             size="sm" @click="blockUser"
+      />
+      <q-btn push color="white" text-color="red" glossy
+             label="Удалить" class="h-[30px]"
+             size="sm" @click="deleteUser"
       />
     </div>
     <div class="md:w-[100%] md:flex md:justify-between">
