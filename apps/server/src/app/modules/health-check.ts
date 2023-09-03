@@ -1,4 +1,3 @@
-import { appName } from 'config/consts'
 import { FastifyPluginAsync } from 'fastify'
 
 import { RoutePaths } from '@/common/consts/paths'
@@ -10,7 +9,7 @@ interface StatusCheckResponse {
 export const healthCheckModule: FastifyPluginAsync = async (server) => {
   server.get(RoutePaths._ROOT, async (): Promise<StatusCheckResponse> => {
     return {
-      message: `${appName} API`
+      message: 'pixel-playground API'
     }
   })
 }

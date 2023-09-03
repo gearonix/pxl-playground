@@ -1,13 +1,12 @@
 import { SwaggerOptions } from '@fastify/swagger'
-import { appName } from 'config/consts'
 
 import { serverHost } from '@/common/consts/env'
 
 export const swaggerOptions: SwaggerOptions = {
   swagger: {
     info: {
-      title: appName,
-      description: `${appName} API`,
+      title: 'Pixel Playground',
+      description: 'Pixel Playground API',
       version: '0.1.0'
     },
     host: serverHost,

@@ -6,6 +6,7 @@ import { fastify, FastifyInstance, FastifyServerOptions } from 'fastify'
 
 import { exceptionModule } from '@/app/modules/exception-module'
 import { jwtAuthModule } from '@/app/modules/jwt-auth'
+import { serverPrefix } from '@/common/consts/env'
 
 import { corsOptions } from './config/cors'
 import { swaggerOptions } from './config/swagger'
@@ -28,9 +29,9 @@ export const createServer = (
 
   server.register(exceptionModule)
 
-  server.register(healthCheckModule)
+  server.register(healthCheckModule, { prefix: serverPrefix })
 
-  server.register(routerModule)
+  server.register(routerModule, { prefix: serverPrefix })
 
   server.register(swagger, swaggerOptions)
 
