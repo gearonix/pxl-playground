@@ -6,7 +6,7 @@ export const startServer = async () => {
     logger: !isDev
   })
 
-  try {
+ try {
     await server.listen({ port: Number(serverPort) })
   } catch (error) {
     server.log.error(error)

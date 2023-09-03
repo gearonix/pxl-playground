@@ -18,6 +18,10 @@
     .profile-head {
         @apply text-xl mt-[30px] mb-[20px]
     }
+
+    .absolute-center {
+        @apply absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10;
+    }
 }
 
 @layer utilities {

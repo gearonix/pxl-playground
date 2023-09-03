@@ -45,5 +45,13 @@ watch(
 </script>
 
 <template>
-  <slot />
+  <slot v-if="!isPending"/>
+  <q-circular-progress
+      v-else
+      indeterminate
+      rounded
+      size="40px"
+      color="grey-4"
+      class="absolute-center"
+  />
 </template>
