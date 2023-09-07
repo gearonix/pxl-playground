@@ -1,5 +1,5 @@
 import { createEffect, createStore, sample } from 'effector'
-import { Shipment } from 'server/src/_prisma-types'
+import { Disc, Shipment } from 'server/src/_prisma-types'
 import { ChangeOrderStatus } from 'server-types'
 
 import { EndPoints } from '@/shared/config/endpoints'
@@ -22,12 +22,22 @@ export const changeOrderStatusFx = createEffect<
   return httpService.url(EndPoints.ADMIN.changeOrderStatus).put(payload).json()
 })
 
+export const deleteProductsByIdsFx = createEffect<Disc[], void, FetchError>(
+  async (discs: Disc[]) => {
+    return httpService
+      .url(EndPoints.ADMIN.deleteOrders)
+      .json(discs)
+      .delete()
+      .json()
+  }
+)
+
 sample({
   clock: getAdminOrdersFx.doneData,
   target: $adminOrders
 })
 
 sample({
-  clock: changeOrderStatusFx.doneData,
+  clock: [changeOrderStatusFx.doneData, deleteProductsByIdsFx.doneData],
   target: getAdminOrdersFx
 })

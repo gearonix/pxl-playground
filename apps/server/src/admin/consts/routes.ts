@@ -8,5 +8,6 @@ export enum AdminRoutes {
   CREATE_SHIPMENT = '/create-shipment',
   SHIPMENTS = '/shipments',
   CHANGE_ORDER_STATUS = '/change-order-status',
-  DELETE_USER = '/delete-user'
+  DELETE_USER = '/delete-user',
+  DELETE_PRODUCTS = '/delete-products'
 }

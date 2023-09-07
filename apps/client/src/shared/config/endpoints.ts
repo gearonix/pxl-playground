@@ -24,6 +24,7 @@ export const EndPoints = {
     createShipment: '/admin/create-shipment',
     getOrders: '/admin/shipments',
     changeOrderStatus: '/admin/change-order-status',
-    deleteUser: '/admin/delete-user'
+    deleteUser: '/admin/delete-user',
+    deleteOrders: '/admin/delete-products'
   }
 } as const

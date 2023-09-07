@@ -8,7 +8,7 @@ import {
   WithUserId
 } from 'server-types'
 
-import { Shipment, SiteStatus, User } from '@/_prisma-types'
+import { Disc, Shipment, SiteStatus, User } from '@/_prisma-types'
 import { AdminRoutes } from '@/admin/consts/routes'
 import {
   changeOrderStatusSchema,
@@ -17,6 +17,7 @@ import {
   createProductSchema,
   createShipmentSchema,
   createUserSchema,
+  deleteProductsSchema,
   withUserIdSchema
 } from '@/admin/schema'
 import { AdminGlobalService } from '@/admin/services/admin-global.service'
@@ -126,6 +127,18 @@ export const adminController: Controller = (server, opts, done) => {
       const entry = withEntry(req)
 
       return productService.changeOrderStatus(entry)
+    }
+  )
+
+  server.delete<Body<Disc[]>>(
+    AdminRoutes.DELETE_PRODUCTS,
+    { schema: deleteProductsSchema },
+    async (req) => {
+      const entry = withEntry(req)
+
+      console.log(entry)
+
+      return productService.deleteProductsByIds(entry)
     }
   )
 

@@ -1,9 +1,6 @@
 import './app/load-env'
+import './app/passenger'
 
 import { startServer } from '@/app/start-server'
-
-if (typeof PhusionPassenger !== 'undefined') {
-  PhusionPassenger.configure({ autoInstall: false })
-}
 
 startServer()

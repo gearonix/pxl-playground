@@ -1,14 +1,19 @@
-import { Shipment } from 'server/src/_prisma-types'
+import { Disc, Shipment } from 'server/src/_prisma-types'
 import { toRaw } from 'vue'
 import xlsx from 'xlsx/dist/xlsx.full.min'
 
-export const exportExcel = (shipment: Shipment[]) => {
+export const exportExcel = (
+  shipment: Shipment[],
+  callback: (args: Disc[]) => unknown
+) => {
   const orders = toRaw(shipment).flatMap((i) => i.orders)
 
-  const discs = orders.flatMap((order) => order.discs)
+  const discs: Disc[] = orders.flatMap((order) => order.discs)
 
   writeToExcelFile('orders', orders)
   writeToExcelFile('discs', discs)
+
+  callback(discs)
 }
 
 export const writeToExcelFile = (name: string, inputData: any) => {
