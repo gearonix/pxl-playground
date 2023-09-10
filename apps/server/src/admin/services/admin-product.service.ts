@@ -21,15 +21,7 @@ export class AdminProductService extends Service {
     })
   }
 
-  async deleteProductsByIds(discs: Disc[]) {
-    const ids = discs.map((disc) => disc.id)
-
-    return this.server.prisma.disc.deleteMany({
-      where: {
-        id: {
-          in: ids
-        }
-      }
-    })
+  async deleteProducts() {
+    return this.server.prisma.disc.deleteMany()
   }
 }

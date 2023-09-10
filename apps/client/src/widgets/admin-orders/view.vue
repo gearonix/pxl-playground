@@ -1,6 +1,5 @@
 <script  lang="ts" setup="">
 
-import {deleteProductsByIdsFx} from '@/widgets/admin-orders/model'
 import {onMounted} from 'vue'
 
 import {useStore} from '@/shared/hooks'
@@ -35,7 +34,7 @@ const orderStatuses = getOrderStatuses()
       label="Общий экспорт"
       class="max-w-[350px]"
       type="submit"
-      @click="() => exportExcel(adminOrders, deleteProductsByIdsFx)"
+      @click="() => exportExcel(adminOrders)"
   />
 
   <div

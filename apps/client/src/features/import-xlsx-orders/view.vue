@@ -1,10 +1,12 @@
 <script  lang="ts" setup="">
+import {deleteProductsFx} from '@/widgets/admin-orders/model'
 import {useExcelImport} from './import.hook'
 import {addProductsFx} from '@/widgets/add-product-form/model'
 import {CreateProduct} from 'server-types'
 import {importExcelFile} from './xlsx/import'
 
 const addProducts = async (products: CreateProduct[]) => {
+  await deleteProductsFx()
   await addProductsFx(products)
 }
 

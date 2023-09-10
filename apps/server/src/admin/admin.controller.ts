@@ -17,7 +17,6 @@ import {
   createProductSchema,
   createShipmentSchema,
   createUserSchema,
-  deleteProductsSchema,
   withUserIdSchema
 } from '@/admin/schema'
 import { AdminGlobalService } from '@/admin/services/admin-global.service'
@@ -130,17 +129,9 @@ export const adminController: Controller = (server, opts, done) => {
     }
   )
 
-  server.delete<Body<Disc[]>>(
-    AdminRoutes.DELETE_PRODUCTS,
-    { schema: deleteProductsSchema },
-    async (req) => {
-      const entry = withEntry(req)
-
-      console.log(entry)
-
-      return productService.deleteProductsByIds(entry)
-    }
-  )
+  server.delete<Body<Disc[]>>(AdminRoutes.DELETE_PRODUCTS, async () => {
+    return productService.deleteProducts()
+  })
 
   done()
 }

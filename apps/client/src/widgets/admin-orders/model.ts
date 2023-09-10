@@ -22,13 +22,9 @@ export const changeOrderStatusFx = createEffect<
   return httpService.url(EndPoints.ADMIN.changeOrderStatus).put(payload).json()
 })
 
-export const deleteProductsByIdsFx = createEffect<Disc[], void, FetchError>(
-  async (discs: Disc[]) => {
-    return httpService
-      .url(EndPoints.ADMIN.deleteOrders)
-      .json(discs)
-      .delete()
-      .json()
+export const deleteProductsFx = createEffect<void, void, FetchError>(
+  async () => {
+    return httpService.url(EndPoints.ADMIN.deleteOrders).delete().json()
   }
 )
 
@@ -38,6 +34,6 @@ sample({
 })
 
 sample({
-  clock: [changeOrderStatusFx.doneData, deleteProductsByIdsFx.doneData],
+  clock: [changeOrderStatusFx.doneData, deleteProductsFx.doneData],
   target: getAdminOrdersFx
 })

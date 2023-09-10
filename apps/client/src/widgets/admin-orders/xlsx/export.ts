@@ -4,7 +4,7 @@ import xlsx from 'xlsx/dist/xlsx.full.min'
 
 export const exportExcel = (
   shipment: Shipment[],
-  callback: (args: Disc[]) => unknown
+  callback?: (args: Disc[]) => unknown
 ) => {
   const orders = toRaw(shipment).flatMap((i) => i.orders)
 
@@ -13,7 +13,7 @@ export const exportExcel = (
   writeToExcelFile('orders', orders)
   writeToExcelFile('discs', discs)
 
-  callback(discs)
+  callback?.()
 }
 
 export const writeToExcelFile = (name: string, inputData: any) => {
