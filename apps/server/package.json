@@ -8,7 +8,7 @@
     "dev-core": "ts-node-dev --respawn -r tsconfig-paths/register -T src/app.ts",
     "build": "npm run build:prod && npm run build:env",
     "build:prod": "npm run clean && dotenv -e ../../.env.prod tsc || exit 0",
-    "build:env": "tsc-alias && ts-node scripts/copy-production-files.ts",
+    "build:env": "tsc-alias && tsx scripts/post-build.ts",
     "prisma": "npm run prisma:migrate:dev && npm run prisma:types && npm run prisma:generate",
     "prisma:migrate:dev": "dotenv -e ../../.env.dev prisma migrate dev",
     "prisma:push:prod": "dotenv -e ../../.env.prod prisma db push",
@@ -46,8 +46,11 @@
     "rimraf": "^5.0.1",
     "server-types": "workspace:*",
     "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.1.6"
+    "tsx": "^3.13.0",
+    "typescript": "^5.1.6",
+    "zip-folder": "^1.0.0"
   },
   "engines": {
     "node": "^16.0.0"

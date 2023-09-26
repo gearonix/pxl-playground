@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "dotenv -e ../../.env.dev vite",
-    "build": "dotenv -e ../../.env.prod vite build",
+    "build": "dotenv -e ../../.env.prod vite build && tsx scripts/zip-dist.ts",
     "preview": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx}\" --fix && prettier --write \"./src/**/*.{ts}\""
   },
@@ -33,10 +33,12 @@
     "server": "workspace:*",
     "server-types": "workspace:*",
     "tailwindcss": "^3.3.3",
+    "tsx": "^3.13.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-webfont-dl": "^3.7.6",
     "vite-tsconfig-paths": "^4.2.0",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.5",
+    "zip-folder": "^1.0.0"
   }
 }
