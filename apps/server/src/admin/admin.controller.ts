@@ -1,31 +1,31 @@
-import {
-  ChangeOrderStatus,
-  ChangeSiteStatus,
-  CreateProduct,
-  CreateShipmentEntry,
-  CreateUserEntry,
-  SetUserBalance,
-  WithUserId
-} from 'server-types'
+import { ChangeOrderStatus }       from 'server-types'
+import { ChangeSiteStatus }        from 'server-types'
+import { CreateProduct }           from 'server-types'
+import { CreateShipmentEntry }     from 'server-types'
+import { CreateUserEntry }         from 'server-types'
+import { SetUserBalance }          from 'server-types'
+import { WithUserId }              from 'server-types'
 
-import { Disc, Shipment, SiteStatus, User } from '@/_prisma-types'
-import { AdminRoutes } from '@/admin/consts/routes'
-import {
-  changeOrderStatusSchema,
-  changeSiteStatusSchema,
-  changeUserBalanceSchema,
-  createProductSchema,
-  createShipmentSchema,
-  createUserSchema,
-  withUserIdSchema
-} from '@/admin/schema'
-import { AdminGlobalService } from '@/admin/services/admin-global.service'
-import { AdminProductService } from '@/admin/services/admin-product.service'
-import { AdminShipmentService } from '@/admin/services/admin-shipment.service'
-import { AdminUsersService } from '@/admin/services/admin-users.service'
-import { useAdminGuard } from '@/common/guards'
-import { withEntry } from '@/common/modifiers'
-import { Body, Controller } from '@/common/types/fastify'
+import { Disc }                    from '@/_prisma-types'
+import { Shipment }                from '@/_prisma-types'
+import { SiteStatus }              from '@/_prisma-types'
+import { User }                    from '@/_prisma-types'
+import { AdminRoutes }             from '@/admin/consts/routes'
+import { changeOrderStatusSchema } from '@/admin/schema'
+import { changeSiteStatusSchema }  from '@/admin/schema'
+import { changeUserBalanceSchema } from '@/admin/schema'
+import { createProductSchema }     from '@/admin/schema'
+import { createShipmentSchema }    from '@/admin/schema'
+import { createUserSchema }        from '@/admin/schema'
+import { withUserIdSchema }        from '@/admin/schema'
+import { AdminGlobalService }      from '@/admin/services/admin-global.service'
+import { AdminProductService }     from '@/admin/services/admin-product.service'
+import { AdminShipmentService }    from '@/admin/services/admin-shipment.service'
+import { AdminUsersService }       from '@/admin/services/admin-users.service'
+import { useAdminGuard }           from '@/common/guards'
+import { withEntry }               from '@/common/modifiers'
+import { Body }                    from '@/common/types/fastify'
+import { Controller }              from '@/common/types/fastify'
 
 export const adminController: Controller = (server, opts, done) => {
   const usersService = new AdminUsersService(server)

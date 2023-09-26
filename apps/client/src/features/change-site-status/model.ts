@@ -1,12 +1,14 @@
-import { createEffect, createStore, sample } from 'effector'
-import { Notify } from 'quasar'
-import { SiteStatus } from 'server/src/_prisma-types'
+import { createEffect }     from 'effector'
+import { createStore }      from 'effector'
+import { sample }           from 'effector'
+import { Notify }           from 'quasar'
+import { SiteStatus }       from 'server/src/_prisma-types'
 import { ChangeSiteStatus } from 'server-types'
 
-import { EndPoints } from '@/shared/config/endpoints'
-import { httpService } from '@/shared/config/http-service'
-import { Nullable } from '@/shared/types/common'
-import { FetchError } from '@/shared/types/http'
+import { EndPoints }        from '@/shared/config/endpoints'
+import { httpService }      from '@/shared/config/http-service'
+import { Nullable }         from '@/shared/types/common'
+import { FetchError }       from '@/shared/types/http'
 
 export const $siteStatus = createStore<Nullable<SiteStatus>>(null)
 

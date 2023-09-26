@@ -1,11 +1,13 @@
-import { FastifyReply } from 'fastify'
-import { CreateUserEntry, CreateUserWithPassword } from 'server-types'
+import { FastifyReply }           from 'fastify'
+import { CreateUserEntry }        from 'server-types'
+import { CreateUserWithPassword } from 'server-types'
 
-import { BalanceStatus, User } from '@/_prisma-types'
-import { getUserBalanceChange } from '@/admin/lib/get-user-balance-change'
-import { UserAlreadyExists } from '@/auth/lib/consts/exceptions'
-import { generateUuid } from '@/common/lib/generate-uuid'
-import { UsersService } from '@/core/users'
+import { BalanceStatus }          from '@/_prisma-types'
+import { User }                   from '@/_prisma-types'
+import { getUserBalanceChange }   from '@/admin/lib/get-user-balance-change'
+import { UserAlreadyExists }      from '@/auth/lib/consts/exceptions'
+import { generateUuid }           from '@/common/lib/generate-uuid'
+import { UsersService }           from '@/core/users'
 
 export class AdminUsersService extends UsersService {
   async getUsers() {

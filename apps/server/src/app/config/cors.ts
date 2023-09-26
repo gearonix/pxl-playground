@@ -1,6 +1,6 @@
 import { FastifyCorsOptions } from '@fastify/cors'
 
-import { clientUrl } from '@/common/consts/env'
+import { clientUrl }          from '@/common/consts/env'
 
 export const corsOptions: FastifyCorsOptions = {
   origin: clientUrl,

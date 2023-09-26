@@ -1,13 +1,12 @@
-import { createEffect, sample } from 'effector'
-import { CreateProduct } from 'server-types'
+import { createEffect }            from 'effector'
+import { sample }                  from 'effector'
+import { CreateProduct }           from 'server-types'
 
-import { EndPoints } from '@/shared/config/endpoints'
-import { httpService } from '@/shared/config/http-service'
-import { FetchError } from '@/shared/types/http'
-import {
-  showErrorNotification,
-  showSuccessNotification
-} from '@/widgets/add-product-form/lib'
+import { EndPoints }               from '@/shared/config/endpoints'
+import { httpService }             from '@/shared/config/http-service'
+import { FetchError }              from '@/shared/types/http'
+import { showErrorNotification }   from '@/widgets/add-product-form/lib'
+import { showSuccessNotification } from '@/widgets/add-product-form/lib'
 
 export const addProductsFx = createEffect<CreateProduct[], void, FetchError>(
   async (payload) => {

@@ -3,25 +3,25 @@ export default {
   theme: {
     extend: {},
     screens: {
-      'xl': {
+      xl: {
         max: '1400px'
       },
       'xl-s1': {
         max: '1279px'
       },
-      'lg': {
+      lg: {
         max: '1023px'
       },
       'lg-s1': {
         max: '830px'
       },
-      'md': {
+      md: {
         max: '767px'
       },
       'md-s1': {
         max: '530px'
       },
-      'sm': {
+      sm: {
         max: '639px'
       }
     }

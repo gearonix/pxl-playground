@@ -1,7 +1,8 @@
-import { createEvent, createStore } from 'effector'
-import { User } from 'server/src/_prisma-types'
+import { createEvent } from 'effector'
+import { createStore } from 'effector'
+import { User }        from 'server/src/_prisma-types'
 
-import { AuthStore } from '@/widgets/signup-form/types'
+import { AuthStore }   from '@/widgets/signup-form/types'
 
 export const userChanged = createEvent<User>()
 export const clearUser = createEvent()

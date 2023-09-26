@@ -1,6 +1,7 @@
-import { FastifyInstance, RouteShorthandOptions } from 'fastify'
+import { FastifyInstance }       from 'fastify'
+import { RouteShorthandOptions } from 'fastify'
 
-import { AnyFunction } from '@/common/types/common'
+import { AnyFunction }           from '@/common/types/common'
 
 export const withGuards = (guards: AnyFunction[]): RouteShorthandOptions => {
   return {

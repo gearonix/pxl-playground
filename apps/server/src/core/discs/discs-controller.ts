@@ -1,10 +1,13 @@
-import { AccessTokenResponse, DiscType, GetAllDiscsEntry } from 'server-types'
+import { AccessTokenResponse } from 'server-types'
+import { DiscType }            from 'server-types'
+import { GetAllDiscsEntry }    from 'server-types'
 
-import { useAuthGuard } from '@/common/guards/use-auth-guard'
-import { Controller, Query } from '@/common/types/fastify'
-import { DiscsRoutes } from '@/core/discs/consts/routes'
-import { DiscsService } from '@/core/discs/discs-service'
-import { getAllDiscsSchema } from '@/core/discs/schema'
+import { useAuthGuard }        from '@/common/guards/use-auth-guard'
+import { Controller }          from '@/common/types/fastify'
+import { Query }               from '@/common/types/fastify'
+import { DiscsRoutes }         from '@/core/discs/consts/routes'
+import { DiscsService }        from '@/core/discs/discs-service'
+import { getAllDiscsSchema }   from '@/core/discs/schema'
 
 export const discsController: Controller = (server, opts, done) => {
   const discsService = new DiscsService(server)

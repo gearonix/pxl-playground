@@ -1,9 +1,10 @@
-import wretch, { ConfiguredMiddleware } from 'wretch'
-import QueryStringAddon from 'wretch/addons/queryString'
+import wretch                   from 'wretch'
+import { ConfiguredMiddleware } from 'wretch'
+import QueryStringAddon         from 'wretch/addons/queryString'
 
-import { LocalStorageClient } from '@/shared/lib/local-storage'
+import { LocalStorageClient }   from '@/shared/lib/local-storage'
 
-import { serverUrl } from './env'
+import { serverUrl }            from './env'
 
 const storage = new LocalStorageClient()
 

@@ -1,4 +1,5 @@
-import { BalanceStatus, User } from '@/_prisma-types'
+import { BalanceStatus } from '@/_prisma-types'
+import { User }          from '@/_prisma-types'
 
 export const getUserBalanceChange = (
   balance: User['balance'],

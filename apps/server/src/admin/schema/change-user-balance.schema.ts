@@ -1,5 +1,6 @@
-import S from 'fluent-json-schema'
-import { SetUserBalance, WithUserId } from 'server-types'
+import S                  from 'fluent-json-schema'
+import { SetUserBalance } from 'server-types'
+import { WithUserId }     from 'server-types'
 
 export const changeUserBalanceSchema = {
   body: S.object()

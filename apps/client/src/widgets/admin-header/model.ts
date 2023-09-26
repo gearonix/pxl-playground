@@ -1,6 +1,12 @@
-import { createEvent, createStore } from 'effector'
+import { createEvent } from 'effector'
+import { createStore } from 'effector'
 
-export type AdminTabs = 'users' | 'site-status' | 'add-product' | 'shipments' | 'orders'
+export type AdminTabs =
+  | 'users'
+  | 'site-status'
+  | 'add-product'
+  | 'shipments'
+  | 'orders'
 
 export const setAdminTab = createEvent<AdminTabs>()
 

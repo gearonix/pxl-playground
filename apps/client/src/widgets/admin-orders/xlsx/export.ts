@@ -1,6 +1,7 @@
-import { Disc, Shipment } from 'server/src/_prisma-types'
-import { toRaw } from 'vue'
-import xlsx from 'xlsx/dist/xlsx.full.min'
+import { Disc }     from 'server/src/_prisma-types'
+import { Shipment } from 'server/src/_prisma-types'
+import { toRaw }    from 'vue'
+import xlsx         from 'xlsx/dist/xlsx.full.min'
 
 export const exportExcel = (
   shipment: Shipment[],

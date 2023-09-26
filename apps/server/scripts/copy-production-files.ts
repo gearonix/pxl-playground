@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+import fs          from 'node:fs'
 import { resolve } from 'node:path'
 
 export const copyProductionFiles = () => {

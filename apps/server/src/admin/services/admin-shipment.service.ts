@@ -1,9 +1,9 @@
-import { FastifyReply } from 'fastify'
-import { CreateShipmentEntry } from 'server-types'
+import { FastifyReply }         from 'fastify'
+import { CreateShipmentEntry }  from 'server-types'
 
 import { ActiveShipmentExists } from '@/admin/consts/exceptions'
-import { HttpStatus } from '@/common/consts/http-statuses'
-import { Service } from '@/common/lib/service.module'
+import { HttpStatus }           from '@/common/consts/http-statuses'
+import { Service }              from '@/common/lib/service.module'
 
 export class AdminShipmentService extends Service {
   async getCurrentShipment() {

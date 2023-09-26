@@ -1,5 +1,5 @@
-import S from 'fluent-json-schema'
-import { SignInEntry } from 'server-types'
+import S                from 'fluent-json-schema'
+import { SignInEntry }  from 'server-types'
 
 import { createSchema } from '@/common/lib/create-schema'
 

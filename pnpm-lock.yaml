@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@grnx-utils/eslint':
+        specifier: ^1.3.24
+        version: 1.3.24(effector@22.8.6)(eslint@8.46.0)(prettier@3.0.0)(svelte@3.59.2)(typescript@5.1.6)
       '@lmpx-config/eslint':
         specifier: ^0.0.12
         version: 0.0.12(typescript@5.1.6)
@@ -1112,6 +1115,28 @@ packages:
       - supports-color
     dev: false
 
+  /@grnx-utils/eslint@1.3.24(effector@22.8.6)(eslint@8.46.0)(prettier@3.0.0)(svelte@3.59.2)(typescript@5.1.6):
+    resolution: {integrity: sha512-tWV8ctIZHWd5Vm/ip4u6s5RywgIHJy1Xql6e29eaxooMjXzEU23qMoVRVchQ7gVrddf8eCSEsOy6Mr2rbfWlUw==}
+    peerDependencies:
+      eslint: ^8.46.0
+      prettier: ^3.0.0
+    dependencies:
+      eslint: 8.46.0
+      eslint-kit: 10.0.0(effector@22.8.6)(eslint@8.46.0)(prettier@3.0.0)(svelte@3.59.2)(typescript@5.1.6)
+      eslint-plugin-prefer-arrow: 1.2.3(eslint@8.46.0)
+      prettier: 3.0.0
+      prettier-plugin-layout: 0.0.2(eslint@8.46.0)(prettier@3.0.0)(typescript@5.1.6)
+    transitivePeerDependencies:
+      - '@types/eslint'
+      - effector
+      - eslint-config-prettier
+      - eslint-import-resolver-node
+      - eslint-import-resolver-webpack
+      - supports-color
+      - svelte
+      - typescript
+    dev: true
+
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
     engines: {node: '>=10.10.0'}
@@ -1883,6 +1908,25 @@ packages:
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.1.6)
       eslint: 8.46.0
       eslint-scope: 5.1.1
+      semver: 7.5.4
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  /@typescript-eslint/utils@6.4.1(eslint@8.46.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-F/6r2RieNeorU0zhqZNv89s9bDZSovv3bZQpUNOmmQK1L80/cV4KEu95YUJWi75u5PhboFoKUJBnZ4FQcoqhDw==}
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+    dependencies:
+      '@eslint-community/eslint-utils': 4.4.0(eslint@8.46.0)
+      '@types/json-schema': 7.0.12
+      '@types/semver': 7.5.0
+      '@typescript-eslint/scope-manager': 6.4.1
+      '@typescript-eslint/types': 6.4.1
+      '@typescript-eslint/typescript-estree': 6.4.1(typescript@5.1.6)
+      eslint: 8.46.0
       semver: 7.5.4
     transitivePeerDependencies:
       - supports-color
@@ -3362,7 +3406,7 @@ packages:
     peerDependencies:
       eslint-plugin-import: '>=2.2.0'
     dependencies:
-      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.46.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       glob-parent: 6.0.2
       resolve: 1.22.4
     dev: true
@@ -3396,7 +3440,7 @@ packages:
       enhanced-resolve: 5.15.0
       eslint: 8.46.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
-      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.46.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       get-tsconfig: 4.6.2
       globby: 13.2.2
       is-core-module: 2.13.0
@@ -3427,7 +3471,7 @@ packages:
       eslint-import-resolver-jsconfig: 1.1.0
       eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.62.0)(eslint-plugin-import@2.27.5)(eslint@8.46.0)
       eslint-plugin-effector: 0.10.5(effector@22.8.6)(eslint@8.46.0)
-      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.46.0)
+      eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.46.0)
       eslint-plugin-prettier: 5.0.0(eslint@8.46.0)(prettier@3.0.0)
       eslint-plugin-react: 7.32.2(eslint@8.46.0)
@@ -3450,6 +3494,36 @@ packages:
       - supports-color
       - svelte
       - typescript
+    dev: true
+
+  /eslint-module-utils@2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0):
+    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
+    engines: {node: '>=4'}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint: '*'
+      eslint-import-resolver-node: '*'
+      eslint-import-resolver-typescript: '*'
+      eslint-import-resolver-webpack: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+      eslint:
+        optional: true
+      eslint-import-resolver-node:
+        optional: true
+      eslint-import-resolver-typescript:
+        optional: true
+      eslint-import-resolver-webpack:
+        optional: true
+    dependencies:
+      '@typescript-eslint/parser': 5.62.0(eslint@8.46.0)(typescript@5.1.6)
+      debug: 3.2.7
+      eslint: 8.46.0
+      eslint-import-resolver-node: 0.3.9
+      eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.62.0)(eslint-plugin-import@2.27.5)(eslint@8.46.0)
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eslint-module-utils@2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0):
@@ -3477,35 +3551,6 @@ packages:
       debug: 3.2.7
       eslint: 8.46.0
       eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@5.62.0)(eslint-plugin-import@2.27.5)(eslint@8.46.0)
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
-  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.4.1)(eslint-import-resolver-node@0.3.9)(eslint@8.46.0):
-    resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: '*'
-      eslint-import-resolver-node: '*'
-      eslint-import-resolver-typescript: '*'
-      eslint-import-resolver-webpack: '*'
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-      eslint:
-        optional: true
-      eslint-import-resolver-node:
-        optional: true
-      eslint-import-resolver-typescript:
-        optional: true
-      eslint-import-resolver-webpack:
-        optional: true
-    dependencies:
-      '@typescript-eslint/parser': 6.4.1(eslint@8.46.0)(typescript@5.1.6)
-      debug: 3.2.7
-      eslint: 8.46.0
-      eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3551,7 +3596,7 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /eslint-plugin-import@2.27.5(@typescript-eslint/parser@6.4.1)(eslint@8.46.0):
+  /eslint-plugin-import@2.27.5(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0):
     resolution: {integrity: sha512-LmEt3GVofgiGuiE+ORpnvP+kAm3h6MLZJ4Q5HCyHADofsb4VzXFsRiWj3c0OFiV+3DWFh0qg3v9gcPlfc3zRow==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -3561,7 +3606,7 @@ packages:
       '@typescript-eslint/parser':
         optional: true
     dependencies:
-      '@typescript-eslint/parser': 6.4.1(eslint@8.46.0)(typescript@5.1.6)
+      '@typescript-eslint/parser': 5.62.0(eslint@8.46.0)(typescript@5.1.6)
       array-includes: 3.1.6
       array.prototype.flat: 1.3.1
       array.prototype.flatmap: 1.3.1
@@ -3569,7 +3614,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.46.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.4.1)(eslint-import-resolver-node@0.3.9)(eslint@8.46.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.46.0)
       has: 1.0.3
       is-core-module: 2.13.0
       is-glob: 4.0.3
@@ -4828,6 +4873,21 @@ packages:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
+    dev: true
+
+  /import-layout@0.0.2(eslint@8.46.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-ik5KoF/mw5uZD8P/3KW7voowb9Omp8fwUISZgnFptagZ6trTfB/akYXN6tVcv8kvp03QErwwQb3E2FXNnTZucQ==}
+    peerDependencies:
+      eslint: '8'
+    peerDependenciesMeta:
+      eslint:
+        optional: true
+    dependencies:
+      '@typescript-eslint/utils': 6.4.1(eslint@8.46.0)(typescript@5.1.6)
+      eslint: 8.46.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
     dev: true
 
   /import-layout@0.0.2(eslint@8.47.0)(typescript@5.1.6):
@@ -6216,6 +6276,19 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.3.0
+    dev: true
+
+  /prettier-plugin-layout@0.0.2(eslint@8.46.0)(prettier@3.0.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-623r7TME2h1ATWG/1KZSUjNe27Jep9YMNtvlKbu4U+hB6b1T1NDDO32VBxagJqw1IPUxlubletbleu/e7HKVzg==}
+    peerDependencies:
+      prettier: '3'
+    dependencies:
+      import-layout: 0.0.2(eslint@8.46.0)(typescript@5.1.6)
+      prettier: 3.0.0
+    transitivePeerDependencies:
+      - eslint
+      - supports-color
+      - typescript
     dev: true
 
   /prettier-plugin-layout@0.0.2(eslint@8.47.0)(prettier@3.0.2)(typescript@5.1.6):

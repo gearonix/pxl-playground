@@ -1,6 +1,6 @@
 import { FastifyPluginAsync } from 'fastify'
 
-import { RoutePaths } from '@/common/consts/paths'
+import { RoutePaths }         from '@/common/consts/paths'
 
 interface StatusCheckResponse {
   message: string

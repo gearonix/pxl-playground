@@ -1,7 +1,9 @@
-import { FastifyPluginAsync, FastifyReply } from 'fastify'
-import fp from 'fastify-plugin'
+import { FastifyPluginAsync } from 'fastify'
+import { FastifyReply }       from 'fastify'
+import fp                     from 'fastify-plugin'
 
-import { HttpStatus, HttpStatusValues } from '@/common/consts/http-statuses'
+import { HttpStatus }         from '@/common/consts/http-statuses'
+import { HttpStatusValues }   from '@/common/consts/http-statuses'
 
 declare module 'fastify' {
   interface FastifyReply {
@@ -18,17 +20,17 @@ interface ExceptionModulePayload {
 }
 
 export const exceptionModule: FastifyPluginAsync = fp(async (server) => {
-  server.decorateReply(
-    'throwError',
-    (reply: FastifyReply, { msg, code = HttpStatus.BAD_REQUEST }) => {
-      server.log.error(msg)
-      console.warn(msg)
+  server.decorateReply('throwError', (
+    reply: FastifyReply,
+    { msg, code = HttpStatus.BAD_REQUEST }
+  ) => {
+    server.log.error(msg)
+    console.warn(msg)
 
-      return reply.status(code).send({
-        message: msg,
-        statusCode: code,
-        error: true
-      })
-    }
-  )
+    return reply.status(code).send({
+      message: msg,
+      statusCode: code,
+      error: true
+    })
+  })
 })

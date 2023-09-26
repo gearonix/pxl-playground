@@ -1,4 +1,5 @@
-import { Keys, Values } from '../types/common'
+import { Keys }   from '../types/common'
+import { Values } from '../types/common'
 
 const routes = {
   MAIN: 'MAIN',

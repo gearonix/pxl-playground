@@ -1,6 +1,7 @@
 import { kebabCaseAppName } from 'config/consts'
 
-import { LocalStorage, LocalStorageKeys } from '@/shared/config/local-storage'
+import { LocalStorage }     from '@/shared/config/local-storage'
+import { LocalStorageKeys } from '@/shared/config/local-storage'
 
 export class LocalStorageClient {
   isDisabled = false

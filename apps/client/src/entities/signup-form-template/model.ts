@@ -1,4 +1,5 @@
-import { createEvent, createStore } from 'effector'
+import { createEvent }      from 'effector'
+import { createStore }      from 'effector'
 
 import { SignupFormValues } from '@/widgets/signup-form'
 

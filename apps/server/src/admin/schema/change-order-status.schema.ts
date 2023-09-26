@@ -1,5 +1,6 @@
-import S from 'fluent-json-schema'
-import { ChangeOrderStatus, WithUserId } from 'server-types'
+import S                     from 'fluent-json-schema'
+import { ChangeOrderStatus } from 'server-types'
+import { WithUserId }        from 'server-types'
 
 export const changeOrderStatusSchema = {
   body: S.object()

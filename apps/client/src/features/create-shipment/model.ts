@@ -1,11 +1,14 @@
-import { createEffect, createEvent, createStore, sample } from 'effector'
-import { Notify } from 'quasar'
+import { createEffect }        from 'effector'
+import { createEvent }         from 'effector'
+import { createStore }         from 'effector'
+import { sample }              from 'effector'
+import { Notify }              from 'quasar'
 import { CreateShipmentEntry } from 'server-types'
 
-import { createOrderFx } from '@/features/create-order/model'
-import { EndPoints } from '@/shared/config/endpoints'
-import { httpService } from '@/shared/config/http-service'
-import { clearBasket } from '@/widgets/header/model/$basket'
+import { createOrderFx }       from '@/features/create-order/model'
+import { EndPoints }           from '@/shared/config/endpoints'
+import { httpService }         from '@/shared/config/http-service'
+import { clearBasket }         from '@/widgets/header/model/$basket'
 
 export const $creationDate = createStore<string>('')
 

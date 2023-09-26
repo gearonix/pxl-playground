@@ -1,6 +1,6 @@
 import { SwaggerOptions } from '@fastify/swagger'
 
-import { serverHost } from '@/common/consts/env'
+import { serverHost }     from '@/common/consts/env'
 
 export const swaggerOptions: SwaggerOptions = {
   swagger: {

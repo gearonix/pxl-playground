@@ -1,5 +1,5 @@
-import { User } from '@/_prisma-types'
-import { Service } from '@/common/lib/service.module'
+import { User }            from '@/_prisma-types'
+import { Service }         from '@/common/lib/service.module'
 import { ExtractOptional } from '@/common/types/common'
 
 export class UserControlService extends Service {

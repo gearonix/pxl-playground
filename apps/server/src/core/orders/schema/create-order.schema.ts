@@ -1,4 +1,4 @@
-import S from 'fluent-json-schema'
+import S                   from 'fluent-json-schema'
 import { CreateOrderKeys } from 'server-types'
 
 export const createOrderSchema = {

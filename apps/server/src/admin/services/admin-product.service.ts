@@ -1,7 +1,8 @@
-import { ChangeOrderStatus, CreateProduct } from 'server-types'
+import { ChangeOrderStatus } from 'server-types'
+import { CreateProduct }     from 'server-types'
 
-import { Disc } from '@/_prisma-types'
-import { Service } from '@/common/lib/service.module'
+import { Disc }              from '@/_prisma-types'
+import { Service }           from '@/common/lib/service.module'
 
 export class AdminProductService extends Service {
   async createProducts(entry: CreateProduct[]): Promise<Disc> {

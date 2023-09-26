@@ -1,4 +1,4 @@
-import S from 'fluent-json-schema'
+import S              from 'fluent-json-schema'
 import { WithUserId } from 'server-types'
 
 export const withUserIdSchema = {

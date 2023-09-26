@@ -1,4 +1,4 @@
-import { User } from 'server/src/_prisma-types'
+import { User }     from 'server/src/_prisma-types'
 import { computed } from 'vue'
 
 export const useOrdersCount = (user: User) => {

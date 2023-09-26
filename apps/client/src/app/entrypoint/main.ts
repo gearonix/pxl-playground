@@ -1,11 +1,13 @@
-import '../styles/import'
+import                     '../styles/import'
 
-import { LoadingBar, Notify, Quasar } from 'quasar'
-import langRu from 'quasar/lang/ru'
-import { createApp } from 'vue'
+import { LoadingBar } from 'quasar'
+import { Notify }     from 'quasar'
+import { Quasar }     from 'quasar'
+import langRu         from 'quasar/lang/ru'
+import { createApp }  from 'vue'
 
-import { router } from '../router'
-import App from './application.vue'
+import { router }     from '../router'
+import App            from './application.vue'
 
 const rootId = '#app'
 

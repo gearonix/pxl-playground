@@ -1,6 +1,6 @@
-import { Notify } from 'quasar'
+import { Notify }        from 'quasar'
 import { isNewProducts } from 'src/features/import-xlsx-orders/xlsx/is-new-products'
-import xlsx from 'xlsx/dist/xlsx.full.min'
+import xlsx              from 'xlsx/dist/xlsx.full.min'
 
 import { addProductsFx } from '@/widgets/add-product-form/model'
 

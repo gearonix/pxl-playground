@@ -1,11 +1,11 @@
 import { FastifyPluginAsync } from 'fastify'
 
-import { adminController } from '@/admin'
-import { authController } from '@/auth'
-import { RoutePaths } from '@/common/consts/paths'
-import { discsController } from '@/core/discs/discs-controller'
-import { ordersController } from '@/core/orders'
-import { usersController } from '@/core/users/users-controller'
+import { adminController }    from '@/admin'
+import { authController }     from '@/auth'
+import { RoutePaths }         from '@/common/consts/paths'
+import { discsController }    from '@/core/discs/discs-controller'
+import { ordersController }   from '@/core/orders'
+import { usersController }    from '@/core/users/users-controller'
 
 export const routerModule: FastifyPluginAsync = async (server) => {
   server.register(authController, { prefix: RoutePaths.AUTH })

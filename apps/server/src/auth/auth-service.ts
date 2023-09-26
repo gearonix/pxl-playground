@@ -1,22 +1,19 @@
-import {
-  DoneFuncWithErrOrRes,
-  FastifyInstance,
-  FastifyReply,
-  FastifyRequest
-} from 'fastify'
-import { AccessTokenResponse, SignInEntry } from 'server-types'
+import { DoneFuncWithErrOrRes } from 'fastify'
+import { FastifyInstance }      from 'fastify'
+import { FastifyReply }         from 'fastify'
+import { FastifyRequest }       from 'fastify'
+import { AccessTokenResponse }  from 'server-types'
+import { SignInEntry }          from 'server-types'
 
-import { AdminGlobalService } from '@/admin/services/admin-global.service'
-import {
-  UserIsBlocked,
-  UserNotFound,
-  WrongPassword
-} from '@/auth/lib/consts/exceptions'
-import { HttpStatus } from '@/common/consts/http-statuses'
-import { Body } from '@/common/types/fastify'
-import { UsersService } from '@/core/users'
+import { AdminGlobalService }   from '@/admin/services/admin-global.service'
+import { UserIsBlocked }        from '@/auth/lib/consts/exceptions'
+import { UserNotFound }         from '@/auth/lib/consts/exceptions'
+import { WrongPassword }        from '@/auth/lib/consts/exceptions'
+import { HttpStatus }           from '@/common/consts/http-statuses'
+import { Body }                 from '@/common/types/fastify'
+import { UsersService }         from '@/core/users'
 
-import { AccessTokenPayload } from './types'
+import { AccessTokenPayload }   from './types'
 
 export class AuthService {
   usersService: UsersService

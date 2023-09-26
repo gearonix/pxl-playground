@@ -1,6 +1,8 @@
-import { createEvent, createStore, restore } from 'effector'
-import { Disc } from 'server/src/_prisma-types'
-import { DiscType } from 'server-types'
+import { createEvent } from 'effector'
+import { createStore } from 'effector'
+import { restore }     from 'effector'
+import { Disc }        from 'server/src/_prisma-types'
+import { DiscType }    from 'server-types'
 
 export const setDiscs = createEvent<Disc[]>()
 

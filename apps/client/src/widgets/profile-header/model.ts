@@ -1,4 +1,5 @@
-import { createEvent, createStore } from 'effector'
+import { createEvent } from 'effector'
+import { createStore } from 'effector'
 
 export type ProfileTabs = 'data' | 'balance' | 'orders' | 'leave-account'
 

@@ -8,6 +8,7 @@
     "preview": "turbo run preview"
   },
   "devDependencies": {
+    "@grnx-utils/eslint": "^1.3.24",
     "@lmpx-config/eslint": "^0.0.12",
     "@turbo/gen": "^1.9.7",
     "@typescript-eslint/parser": "^6.2.1",

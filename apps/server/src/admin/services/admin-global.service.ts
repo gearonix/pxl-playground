@@ -1,11 +1,12 @@
-import { FastifyReply } from 'fastify'
-import { ChangeSiteStatus, GetSiteStatus } from 'server-types'
+import { FastifyReply }          from 'fastify'
+import { ChangeSiteStatus }      from 'server-types'
+import { GetSiteStatus }         from 'server-types'
 
-import { SiteStatus } from '@/_prisma-types'
+import { SiteStatus }            from '@/_prisma-types'
 import { ServerIsDownException } from '@/admin/consts/exceptions'
-import { UserNotFound } from '@/auth/lib/consts/exceptions'
-import { HttpStatus } from '@/common/consts/http-statuses'
-import { Service } from '@/common/lib/service.module'
+import { UserNotFound }          from '@/auth/lib/consts/exceptions'
+import { HttpStatus }            from '@/common/consts/http-statuses'
+import { Service }               from '@/common/lib/service.module'
 
 export class AdminGlobalService extends Service {
   async changeSiteStatus(status: SiteStatus): Promise<ChangeSiteStatus> {

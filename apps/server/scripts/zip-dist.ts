@@ -1,6 +1,6 @@
-import fs from 'node:fs'
+import fs          from 'node:fs'
 import { resolve } from 'node:path'
-import zip from 'zip-folder'
+import zip         from 'zip-folder'
 
 export const zipDist = () => {
   const serverRoot = resolve(__dirname, '..')

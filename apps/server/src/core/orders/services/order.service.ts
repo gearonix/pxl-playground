@@ -1,19 +1,19 @@
-import {
-  DoneFuncWithErrOrRes,
-  FastifyInstance,
-  FastifyReply,
-  FastifyRequest
-} from 'fastify'
-import { CreateOrderPayload, SignInEntry } from 'server-types'
+import { DoneFuncWithErrOrRes }      from 'fastify'
+import { FastifyInstance }           from 'fastify'
+import { FastifyReply }              from 'fastify'
+import { FastifyRequest }            from 'fastify'
+import { CreateOrderPayload }        from 'server-types'
+import { SignInEntry }               from 'server-types'
 
-import { UserOrder } from '@/_prisma-types'
-import { AdminShipmentService } from '@/admin/services/admin-shipment.service'
-import { UserNotFound } from '@/auth/lib/consts/exceptions'
-import { HttpStatus } from '@/common/consts/http-statuses'
-import { Service } from '@/common/lib/service.module'
-import { Body } from '@/common/types/fastify'
+import { UserOrder }                 from '@/_prisma-types'
+import { AdminShipmentService }      from '@/admin/services/admin-shipment.service'
+import { UserNotFound }              from '@/auth/lib/consts/exceptions'
+import { HttpStatus }                from '@/common/consts/http-statuses'
+import { Service }                   from '@/common/lib/service.module'
+import { Body }                      from '@/common/types/fastify'
 import { NoActiveShipmentException } from '@/core/orders/consts/exceptions'
-import { getLastOrderId, getTotalAmount } from '@/core/orders/lib'
+import { getLastOrderId }            from '@/core/orders/lib'
+import { getTotalAmount }            from '@/core/orders/lib'
 
 export class OrderService extends Service {
   adminService: AdminShipmentService

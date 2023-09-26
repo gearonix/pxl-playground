@@ -1,5 +1,6 @@
-import S from 'fluent-json-schema'
-import { ChangeSiteStatus, WithUserId } from 'server-types'
+import S                    from 'fluent-json-schema'
+import { ChangeSiteStatus } from 'server-types'
+import { WithUserId }       from 'server-types'
 
 export const changeSiteStatusSchema = {
   body: S.object().prop(

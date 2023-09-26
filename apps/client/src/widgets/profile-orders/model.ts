@@ -1,9 +1,10 @@
-import { createEffect, createStore } from 'effector'
-import { UserOrder } from 'server/src/_prisma-types'
+import { createEffect } from 'effector'
+import { createStore }  from 'effector'
+import { UserOrder }    from 'server/src/_prisma-types'
 
-import { EndPoints } from '@/shared/config/endpoints'
-import { httpService } from '@/shared/config/http-service'
-import { FetchError } from '@/shared/types/http'
+import { EndPoints }    from '@/shared/config/endpoints'
+import { httpService }  from '@/shared/config/http-service'
+import { FetchError }   from '@/shared/types/http'
 
 export const $userOrders = createStore<UserOrder[]>([])
 

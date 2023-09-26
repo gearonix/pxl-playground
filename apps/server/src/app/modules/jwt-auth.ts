@@ -1,9 +1,9 @@
-import jwtService from '@fastify/jwt'
+import jwtService               from '@fastify/jwt'
 import { onRequestHookHandler } from 'fastify'
-import bcrypt from 'fastify-bcrypt'
-import fp from 'fastify-plugin'
+import bcrypt                   from 'fastify-bcrypt'
+import fp                       from 'fastify-plugin'
 
-import { jwtSecret } from '@/common/consts/env'
+import { jwtSecret }            from '@/common/consts/env'
 
 declare module 'fastify' {
   interface FastifyInstance {

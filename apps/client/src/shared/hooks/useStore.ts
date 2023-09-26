@@ -1,5 +1,8 @@
-import { Store } from 'effector'
-import { onMounted, onUnmounted, readonly, ref } from 'vue'
+import { Store }       from 'effector'
+import { onMounted }   from 'vue'
+import { onUnmounted } from 'vue'
+import { readonly }    from 'vue'
+import { ref }         from 'vue'
 
 export const useStore = <T>(store: Store<T>) => {
   const storeRef = ref(store.getState())

@@ -1,4 +1,4 @@
-import S from 'fluent-json-schema'
+import S                 from 'fluent-json-schema'
 import { CreateProduct } from 'server-types'
 
 export const createProductSchema = {

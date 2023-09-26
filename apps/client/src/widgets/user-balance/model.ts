@@ -1,9 +1,11 @@
-import { createEffect, createStore, sample } from 'effector'
+import { createEffect }  from 'effector'
+import { createStore }   from 'effector'
+import { sample }        from 'effector'
 import { BalanceChange } from 'server/src/_prisma-types'
 
-import { EndPoints } from '@/shared/config/endpoints'
-import { httpService } from '@/shared/config/http-service'
-import { FetchError } from '@/shared/types/http'
+import { EndPoints }     from '@/shared/config/endpoints'
+import { httpService }   from '@/shared/config/http-service'
+import { FetchError }    from '@/shared/types/http'
 
 export const $balanceHistory = createStore<BalanceChange[]>([])
 
