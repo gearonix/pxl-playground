@@ -18,8 +18,8 @@ pnpm run build
 
 ## See also
 
-- [client](./apps/client/README.md)
-- [server](./apps/server/README.md)
+- [Client docs](./apps/client/README.md)
+- [Server docs](./apps/server/README.md)
 
 ### Tech Stack
 
