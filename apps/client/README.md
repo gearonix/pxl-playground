@@ -10,5 +10,5 @@ pnpm run dev --filter=client
 
 This will create a `dist` archive, see also [zip-dist](./scripts/zip-dist.ts)
 ```shell
-pnpm run build
+pnpm run build  --filter=client
 ```

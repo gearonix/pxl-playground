@@ -14,7 +14,7 @@ pnpm run dev --filter=server
 This will create a `dist` archive and and add the 
 necessary files for deployment to virtual hosting, see also [scripts](./scripts)
 ```shell
-pnpm run build
+pnpm run build  --filter=server
 ```
 
 
@@ -22,5 +22,5 @@ pnpm run build
 This will make `prisma migrate` and generate typescript interfaces for development
 
 ```shell
-pnpm run prisma
+pnpm run prisma  --filter=server
 ```
