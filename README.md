@@ -16,6 +16,11 @@ pnpm run dev
 pnpm run build
 ```
 
+## See also
+
+- [client](./apps/client/README.md)
+- [server](./apps/server/README.md)
+
 ### Tech Stack
 
 - Turborepo
