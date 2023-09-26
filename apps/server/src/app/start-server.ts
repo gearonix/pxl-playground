@@ -1,11 +1,11 @@
 import { defineServerPath } from '@/app/lib'
-import { passengerHost, serverPort } from '@/common/consts/env'
+import {isDev, passengerHost, serverPort} from '@/common/consts/env'
 
 import { createServer } from './create-server'
 
 export const startServer = async () => {
   const server = createServer({
-    logger: false
+    logger: isDev
   })
 
   try {

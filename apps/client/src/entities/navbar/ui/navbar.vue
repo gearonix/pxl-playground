@@ -16,7 +16,8 @@ const basket = useStore($basket)
     no-caps
     active-color="text-dark"
     indicator-color="transparent"
-    class="text-grey-8 h-[100%] lg-s1:!hidden md-s1:!flex"
+    class="text-grey-8 h-[100%]"
+    v-show="user.isAuthorized"
   >
     <router-link :to="RoutePaths.MAIN">
       <q-tab

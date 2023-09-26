@@ -9,7 +9,6 @@ const createColumn = (key: keyof Disc, label: string) => ({
 export const createColumns = () => [
   createColumn('name', 'Название'),
   createColumn('cost', 'Цена'),
-  createColumn('cusa', 'CUSA'),
   createColumn('amount', 'Количество'),
-  createColumn('type', 'Тип диска')
+  createColumn('cusa', 'CUSA')
 ]

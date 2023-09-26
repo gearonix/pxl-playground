@@ -20,11 +20,11 @@ const onBlur = () => {
 <template>
   <div class="max-w-[250px] mt-40px">
     <h3 class="text-xl mt-[35px] mb-[0px] text-grey-8">
-      Адрес доставки
+      Адрес пункта выдачи СДЭК
     </h3>
     <q-input
       v-model="address"
-      label="Изменить адрес доставки"
+      label="Изменить пункт выдачи"
       lazy-rules
       @blur="onBlur"
     />

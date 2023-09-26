@@ -53,8 +53,11 @@ const addToBasket = (disc: Disc, amount: string) => {
       :columns="columns"
       row-key="name"
       binary-state-sort
-      class="min-h-[500px] mt-[12px]"
-      :pagination="{rowsPerPage: 10}"
+      class="min-h-[500px] mt-[20px]"
+      virtual-scroll
+      no-data-label="Нет заказов"
+      hide-pagination
+      rows-per-page-options="0"
     >
       <template #body="props">
         <q-tr :props="props">
@@ -71,39 +74,26 @@ const addToBasket = (disc: Disc, amount: string) => {
             {{ props.row.cost }}
           </q-td>
           <q-td
+              key="amount"
+              :props="props"
+              class="bg-grey-1 w-[175px]"
+          >
+            <q-input
+                v-model="props.row.amount"
+                type="number"
+                class="w-[100%]"
+                dense
+                autofocus
+                @blur="(e) => addDiscToBasket(props.row, e.target.value)"
+            />
+          </q-td>
+          <q-td
             key="cusa"
             :props="props"
           >
             <div class="text-pre-wrap">
               {{ props.row.cusa }}
             </div>
-          </q-td>
-          <q-td
-            key="amount"
-            :props="props"
-            class="bg-grey-1"
-          >
-            {{ props.row.amount }}
-            <q-popup-edit
-              v-slot="scope"
-              v-model="props.row.amount"
-              title="Измените количество"
-              buttons
-              @save="e => addToBasket(props.row, e)"
-            >
-              <q-input
-                v-model="scope.value"
-                type="number"
-                dense
-                autofocus
-              />
-            </q-popup-edit>
-          </q-td>
-          <q-td
-            key="type"
-            :props="props"
-          >
-            {{ props.row.type }}
           </q-td>
         </q-tr>
       </template>

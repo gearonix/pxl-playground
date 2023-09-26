@@ -48,7 +48,7 @@ const onSubmit = () => {
         fill-mask
         type="password"
         maxlength="12"
-        hint="Enter your password"
+        hint="Введите пароль"
         class="mt-[15px]"
         lazy-rules
         :error="Boolean(props.errorMessage)"

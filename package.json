@@ -12,6 +12,7 @@
     "@turbo/gen": "^1.9.7",
     "@typescript-eslint/parser": "^6.2.1",
     "config": "workspace:^",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^8.46.0",
     "eslint-config-gearonix": "1.0.2",
     "eslint-kit": "^10.0.0",
